@@ -1,80 +1,119 @@
 
-const emojis=['⭐','⭐','🚀','🚀','👑','👑','💎','💎','⚽','⚽','🔥','🔥','🎯','🎯','🚗','🚗'];
-let first=null;
-let second=null;
-let lock=false;
-let score=0;
-let pairs=0;
-let time=45;
+const startBtn = document.getElementById('startBtn');
+const startScreen = document.getElementById('startScreen');
+const gameScreen = document.getElementById('gameScreen');
+const grid = document.getElementById('grid');
 
-function shuffle(a){
-return a.sort(()=>Math.random()-0.5);
+const icons = ['⭐','⭐','🚀','🚀','👑','👑','💎','💎','⚽','⚽','🔥','🔥','🎯','🎯','🚗','🚗'];
+
+let first = null;
+let second = null;
+let lock = false;
+let score = 0;
+let matches = 0;
+let time = 45;
+let timer;
+
+function shuffle(arr){
+ return arr.sort(()=>Math.random()-0.5);
+}
+
+startBtn.onclick = ()=>{
+ startScreen.classList.add('hidden');
+ gameScreen.classList.remove('hidden');
+ startGame();
 }
 
 function startGame(){
-document.querySelector('.start-screen h1').style.display='none';
-document.querySelector('.start-button').style.display='none';
-document.getElementById('game').classList.remove('hidden');
 
-const grid=document.getElementById('grid');
-shuffle(emojis).forEach(e=>{
-const c=document.createElement('div');
-c.className='card';
-c.dataset.value=e;
-c.innerHTML='?';
+ shuffle(icons).forEach(icon=>{
 
-c.onclick=()=>{
-if(lock||c.classList.contains('done')) return;
-c.innerHTML=e;
+   const card = document.createElement('div');
+   card.className='card preview';
 
-if(!first){
-first=c;
-}else{
-second=c;
-lock=true;
+   card.innerHTML = `
+   <div class="card-inner">
+      <div class="face back"></div>
+      <div class="face front">${icon}</div>
+   </div>
+   `;
 
-if(first.dataset.value===second.dataset.value){
-score+=100;
-pairs++;
-document.getElementById('score').innerText=score;
-document.getElementById('pairs').innerText=pairs;
+   grid.appendChild(card);
 
-setTimeout(()=>{
-first.style.visibility='hidden';
-second.style.visibility='hidden';
-first.classList.add('done');
-second.classList.add('done');
-reset();
-},500);
+   setTimeout(()=>{
+      card.classList.remove('preview');
+      card.classList.remove('flip');
+   },3000);
 
-}else{
-setTimeout(()=>{
-first.innerHTML='?';
-second.innerHTML='?';
-reset();
-},700);
-}
-}
-};
+   card.classList.add('flip');
 
-grid.appendChild(c);
-});
+   card.onclick = ()=>{
 
-setInterval(()=>{
-time--;
-document.getElementById('time').innerText=time;
-if(time<=0){
-alert('Tempo esgotado!');
-location.reload();
-}
-if(pairs===8){
-alert('Você venceu!');
-}
-},1000);
+      if(lock || card.classList.contains('done')) return;
+      if(card === first) return;
+
+      card.classList.add('flip');
+
+      if(!first){
+        first = {card, icon};
+      }else{
+        second = {card, icon};
+        lock = true;
+
+        if(first.icon === second.icon){
+
+          score += 100;
+          matches++;
+
+          document.getElementById('score').innerText = score;
+          document.getElementById('pairs').innerText = `${matches}/8`;
+
+          setTimeout(()=>{
+            first.card.style.opacity='0';
+            second.card.style.opacity='0';
+
+            first.card.classList.add('done');
+            second.card.classList.add('done');
+
+            reset();
+
+            if(matches===8){
+              alert('Você venceu!');
+              location.reload();
+            }
+
+          },500);
+
+        }else{
+
+          setTimeout(()=>{
+            first.card.classList.remove('flip');
+            second.card.classList.remove('flip');
+            reset();
+          },700);
+
+        }
+      }
+   };
+
+ });
+
+ timer = setInterval(()=>{
+   time--;
+   document.getElementById('time').innerText = time+'s';
+
+   if(time<=0){
+      clearInterval(timer);
+      alert('Tempo esgotado!');
+      location.reload();
+   }
+
+ },1000);
+
 }
 
 function reset(){
-first=null;
-second=null;
-lock=false;
+ first = null;
+ second = null;
+ lock = false;
 }
