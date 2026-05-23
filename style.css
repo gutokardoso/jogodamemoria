@@ -1723,3 +1723,25 @@ body > .game-logo-wrapper{
     height:58px !important;
   }
 }
+
+
+/* HOME MESMO TAMANHO DO CRONÔMETRO */
+
+.home-button{
+  width:92px !important;
+  height:92px !important;
+}
+
+@media (max-width:768px){
+  .home-button{
+    width:66px !important;
+    height:66px !important;
+  }
+}
+
+@media (max-width:420px){
+  .home-button{
+    width:58px !important;
+    height:58px !important;
+  }
+}
