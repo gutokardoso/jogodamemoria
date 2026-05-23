@@ -1253,3 +1253,126 @@ body > .game-logo-wrapper{
     border-radius:12px !important;
   }
 }
+
+
+/* FIX REAL DA PROPORÇÃO DA CARTA
+   A caixa passa a ter a mesma proporção do PNG da carta e a imagem ocupa 100%.
+   Isso elimina a sensação de carta espremida no mobile.
+*/
+.card,
+.game-card,
+.memory-card{
+  width: clamp(64px, 18vw, 120px) !important;
+  height: auto !important;
+  aspect-ratio: 168 / 215 !important;
+
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.card-inner,
+.card-front,
+.card-back,
+.card-face,
+.front,
+.back{
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: 168 / 215 !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.card img,
+.game-card img,
+.memory-card img,
+.card-inner img,
+.card-front img,
+.card-back img,
+.card-face img,
+.front img,
+.back img{
+  width: 100% !important;
+  height: 100% !important;
+
+  max-width: none !important;
+  max-height: none !important;
+
+  object-fit: fill !important;
+  object-position: center center !important;
+
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* O tabuleiro continua com espaçamento igual entre linhas e colunas */
+.cards-grid,
+.game-board,
+.board,
+.memory-grid,
+#cardsGrid,
+#gameBoard{
+  display: grid !important;
+  grid-template-columns: repeat(4, auto) !important;
+  gap: 6px !important;
+  row-gap: 6px !important;
+  column-gap: 6px !important;
+  justify-content: center !important;
+  align-content: center !important;
+  justify-items: center !important;
+  align-items: center !important;
+}
+
+@media (max-width: 768px){
+  .card,
+  .game-card,
+  .memory-card{
+    width: clamp(62px, 19vw, 88px) !important;
+    height: auto !important;
+    aspect-ratio: 168 / 215 !important;
+  }
+
+  .cards-grid,
+  .game-board,
+  .board,
+  .memory-grid,
+  #cardsGrid,
+  #gameBoard{
+    gap: 5px !important;
+    row-gap: 5px !important;
+    column-gap: 5px !important;
+  }
+}
+
+@media (max-width: 420px){
+  .card,
+  .game-card,
+  .memory-card{
+    width: clamp(58px, 20vw, 78px) !important;
+    height: auto !important;
+    aspect-ratio: 168 / 215 !important;
+  }
+
+  .cards-grid,
+  .game-board,
+  .board,
+  .memory-grid,
+  #cardsGrid,
+  #gameBoard{
+    gap: 4px !important;
+    row-gap: 4px !important;
+    column-gap: 4px !important;
+  }
+}
