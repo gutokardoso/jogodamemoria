@@ -2705,3 +2705,19 @@ body > .game-logo-wrapper{
     height:54px !important;
   }
 }
+
+
+/* RESULTADO DINÂMICO — FUNDO POR RESULTADO
+   Corrige conflito com background antigo usando classes específicas + !important.
+*/
+.result-screen.result-win{
+  background:#020914 url('./assets/result-victory-reference.png') center/cover no-repeat !important;
+  width:100% !important;
+  height:100% !important;
+}
+
+.result-screen.result-lose{
+  background:#020914 url('./assets/result-lost-reference.jpg') center/cover no-repeat !important;
+  width:100% !important;
+  height:100% !important;
+}

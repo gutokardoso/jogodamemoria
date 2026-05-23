@@ -61,22 +61,34 @@ canPlay=false;
 finalScore.textContent=fmt(score);
 if(finalTime) finalTime.textContent=Math.max(0,time);
 
-const resultScreenEl = document.getElementById('resultScreen');
+const resultScreenEl=document.getElementById('resultScreen');
+
+if(resultScreenEl){
+  resultScreenEl.classList.remove('result-win','result-lose');
+}
 
 if(win){
-resultTitle.textContent='PARABÉNS!';
-resultText.textContent='VOCÊ VENCEU!';
-if(resultScreenEl){
-resultScreenEl.style.backgroundImage="url('./assets/result-victory-reference.png')";
-}
+  resultTitle.textContent='PARABÉNS!';
+  resultText.textContent='VOCÊ VENCEU!';
+  if(resultScreenEl){
+    resultScreenEl.classList.add('result-win');
+    resultScreenEl.style.setProperty('background-image',"url('./assets/result-victory-reference.png')",'important');
+    resultScreenEl.style.setProperty('background-size','cover','important');
+    resultScreenEl.style.setProperty('background-position','center','important');
+    resultScreenEl.style.setProperty('background-repeat','no-repeat','important');
+  }
 }else{
-resultTitle.textContent='TENTE NOVAMENTE!';
-resultText.textContent='VOCÊ PERDEU!';
-if(resultScreenEl){
-resultScreenEl.style.backgroundImage="url('./assets/result-lost-reference.jpg')";
-}
+  resultTitle.textContent='TENTE NOVAMENTE!';
+  resultText.textContent='VOCÊ PERDEU!';
+  if(resultScreenEl){
+    resultScreenEl.classList.add('result-lose');
+    resultScreenEl.style.setProperty('background-image',"url('./assets/result-lost-reference.jpg')",'important');
+    resultScreenEl.style.setProperty('background-size','cover','important');
+    resultScreenEl.style.setProperty('background-position','center','important');
+    resultScreenEl.style.setProperty('background-repeat','no-repeat','important');
+  }
 }
 
-show(resultScreen)
+show(resultScreen);
 }
 document.getElementById('startButton').onclick=startGame;document.getElementById('homeButton').onclick=()=>show(startScreen);document.getElementById('playAgain').onclick=startGame;document.getElementById('menuButton').onclick=()=>show(startScreen);
