@@ -1793,3 +1793,24 @@ body > .game-logo-wrapper{
     gap:10px !important;
   }
 }
+
+
+/* AJUSTE HUD DESKTOP */
+
+.hud{
+  gap:14px !important;
+}
+
+.right-panels{
+  gap:14px !important;
+}
+
+.timer-ring{
+  width:80px !important;
+  height:80px !important;
+}
+
+.home-button{
+  width:80px !important;
+  height:80px !important;
+}
