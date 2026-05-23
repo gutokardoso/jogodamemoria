@@ -1828,3 +1828,17 @@ body > .game-logo-wrapper{
     margin-bottom:-14px !important;
   }
 }
+
+
+/* FIX REAL DO TOPO DO HUD NO DESKTOP */
+
+@media (min-width: 901px){
+
+  .hud,
+  .top-bar,
+  .game-header,
+  .scoreboard{
+    position:relative !important;
+    top:-14px !important;
+  }
+}
