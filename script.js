@@ -46,9 +46,9 @@ function layoutMobileBoard(){
     return;
   }
 
-  const gap = w <= 420 ? 8 : 10;
-  const maxCard = w <= 420 ? 78 : 88;
-  const minCard = w <= 420 ? 58 : 62;
+  const gap = w <= 420 ? 10 : 12;
+  const maxCard = w <= 420 ? 72 : 82;
+  const minCard = w <= 420 ? 54 : 58;
   const available = Math.max(0, w * 0.88 - gap * 3);
   const cardW = Math.max(minCard, Math.min(maxCard, available / 4));
   const cardH = cardW * 215 / 168;
@@ -69,7 +69,7 @@ function layoutMobileBoard(){
   board.style.setProperty('align-items', 'center', 'important');
   board.style.setProperty('justify-items', 'center', 'important');
   board.style.setProperty('margin', '0 auto', 'important');
-  board.style.setProperty('padding', '0', 'important');
+  board.style.setProperty('padding', '0 0 24px 0', 'important');
 
   document.querySelectorAll('#board > .card').forEach(card => {
     card.style.setProperty('width', `${cardW}px`, 'important');
