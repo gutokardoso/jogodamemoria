@@ -2103,3 +2103,16 @@ body > .game-logo-wrapper{
     aspect-ratio:168 / 215 !important;
   }
 }
+
+/* BACKUP CSS — MOBILE GRID SEM ESPAÇO VERTICAL EXTRA */
+@media (max-width:768px){
+  #board.board{
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    grid-template-rows:repeat(4, auto) !important;
+    grid-auto-rows:auto !important;
+    align-content:start !important;
+    place-content:start center !important;
+  }
+}
