@@ -6,7 +6,6 @@
   <title>Jogo da Memória Premium</title>
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="stylesheet" href="style.css" />
-
 </head>
 <body>
 <img src="./assets/start-bg-clean.jpg" class="start-bg" alt="">
@@ -20,64 +19,32 @@
     <section id="gameScreen" class="screen game-screen" aria-label="Tela do jogo">
       <header class="hud">
         <div class="panel timer-panel">
-          <div class="timer-ring" aria-label="Cronômetro">
-            <svg class="timer-svg" viewBox="0 0 120 120" aria-hidden="true">
-              <circle class="timer-track" cx="60" cy="60" r="52"></circle>
-              <circle id="timerProgress" class="timer-progress" cx="60" cy="60" r="52"></circle>
-            </svg>
-            <strong id="timer">45s</strong>
-          </div>
+          <div class="panel-icon">◷</div>
+          <div><span>TEMPO</span><strong id="timer">45s</strong></div>
         </div>
 
-        
+        <div class="game-title"><div class="crown">♛</div><div>JOGO DA</div><strong>MEMÓRIA</strong></div>
 
         <div class="right-panels">
-          
-          <div class="panel pairs-panel"><div><span>ACERTOS</span><strong id="pairs">0/8</strong></div></div>
-          <button id="homeButton" class="home-button" aria-label="Voltar para tela inicial"><img src="assets/home-icon.png" alt="Home"></button>
+          <div class="panel score-panel"><div class="panel-icon">★</div><div><span>PONTUAÇÃO</span><strong id="score">0000</strong></div></div>
+          <div class="panel pairs-panel"><div class="panel-icon">▱</div><div><span>PARES</span><strong id="pairs">0/8</strong></div></div>
+          <button id="homeButton" class="home-button" aria-label="Voltar para tela inicial">⌂</button>
         </div>
       </header>
-
-      <div class="game-logo-wrapper game-logo-in-game" aria-hidden="true">
-        <img src="./assets/logo-memoria.png" class="game-logo" alt="">
-      </div>
-
 
       <div id="countdown" class="countdown show">3</div>
       <section id="board" class="board" aria-label="Cartas do jogo"></section>
     </section>
 
-
     <section id="resultScreen" class="screen result-screen" aria-label="Resultado">
-      <div class="victory-scene">
-        <h1 id="resultTitle" class="victory-title">PARABÉNS!</h1>
-        <p id="resultText" class="victory-subtitle">VOCÊ VENCEU!</p>
-
-        <img class="victory-trophy" src="assets/result-trophy.png" alt="" aria-hidden="true">
-
-        <div class="victory-stats">
-          <img src="assets/result-panel-clean.png" class="victory-panel-img" alt="" aria-hidden="true">
-          <div class="victory-stat victory-time">
-            <span>TEMPO RESTANTE</span>
-            <strong id="finalTime">0</strong>
-          </div>
-          <div class="victory-stat victory-score">
-            <span>PONTUAÇÃO FINAL</span>
-            <strong id="finalScore">0000</strong>
-          </div>
-        </div>
-
-        <div class="victory-actions">
-          <button id="playAgain" class="victory-button victory-restart" aria-label="Jogar novamente">
-            <img src="assets/result-btn-restart.png" alt="Jogar novamente">
-          </button>
-          <button id="menuButton" class="victory-button victory-menu" aria-label="Menu inicial">
-            <img src="assets/result-btn-menu.png" alt="Menu inicial">
-          </button>
-        </div>
+      <div class="result-card">
+        <h1 id="resultTitle">PARABÉNS!</h1>
+        <p id="resultText">VOCÊ VENCEU!</p>
+        <div class="final-score">PONTUAÇÃO FINAL <strong id="finalScore">0000</strong></div>
+        <button id="playAgain">JOGAR NOVAMENTE</button>
+        <button id="menuButton">MENU INICIAL</button>
       </div>
     </section>
-
   </main>
   <script src="script.js"></script>
 </body>
