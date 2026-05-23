@@ -2721,3 +2721,41 @@ body > .game-logo-wrapper{
   width:100% !important;
   height:100% !important;
 }
+
+
+/* RESULTADO — TROCA DO TEXTO "VOCÊ VENCEU!" POR IMAGEM */
+.victory-trophy{
+  display:none !important;
+}
+
+.victory-text-hidden{
+  display:none !important;
+}
+
+.victory-result-image{
+  display:block !important;
+  width:min(52vw, 720px) !important;
+  max-width:720px !important;
+  height:auto !important;
+  object-fit:contain !important;
+  margin:22px auto 30px !important;
+  filter:drop-shadow(0 0 18px rgba(255,195,45,.55)) !important;
+}
+
+.result-screen.result-lose .victory-result-image{
+  display:none !important;
+}
+
+@media(max-width:900px){
+  .victory-result-image{
+    width:min(78vw, 560px) !important;
+    margin:18px auto 24px !important;
+  }
+}
+
+@media(max-width:520px){
+  .victory-result-image{
+    width:88vw !important;
+    margin:14px auto 20px !important;
+  }
+}
