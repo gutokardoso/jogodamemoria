@@ -1009,3 +1009,82 @@ h1.game-title,
     margin:6px auto 14px !important;
   }
 }
+
+
+/* POSIÇÃO CORRETA DA MARCA: centralizada entre HUD e cartas */
+.game-logo-wrapper.game-logo-in-game{
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+
+  margin: 18px auto 22px auto !important;
+  padding: 0 !important;
+
+  z-index: 5 !important;
+  pointer-events: none !important;
+}
+
+.game-logo-wrapper.game-logo-in-game .game-logo,
+.game-logo-in-game img.game-logo{
+  width: min(30vw, 300px) !important;
+  max-width: 300px !important;
+  min-width: 160px !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+/* impede regras antigas de jogar a marca para o topo/esquerda */
+body > .game-logo-wrapper,
+.start-screen .game-logo-wrapper{
+  display: none !important;
+}
+
+/* espaço abaixo da marca antes das cartas */
+.cards-grid,
+.game-board,
+.board,
+.memory-grid,
+#cardsGrid,
+#gameBoard{
+  margin-top: 0 !important;
+}
+
+/* Mobile: marca na posição do retângulo vermelho, abaixo da HUD */
+@media (max-width: 768px){
+  .game-logo-wrapper.game-logo-in-game{
+    margin: 18px auto 24px auto !important;
+  }
+
+  .game-logo-wrapper.game-logo-in-game .game-logo,
+  .game-logo-in-game img.game-logo{
+    width: min(46vw, 230px) !important;
+    max-width: 230px !important;
+    min-width: 150px !important;
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 420px){
+  .game-logo-wrapper.game-logo-in-game{
+    margin: 16px auto 22px auto !important;
+  }
+
+  .game-logo-wrapper.game-logo-in-game .game-logo,
+  .game-logo-in-game img.game-logo{
+    width: min(50vw, 205px) !important;
+    max-width: 205px !important;
+    min-width: 140px !important;
+  }
+}
