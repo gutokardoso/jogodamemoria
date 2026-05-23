@@ -1880,3 +1880,86 @@ body > .game-logo-wrapper{
     margin-top:118px !important;
   }
 }
+
+
+/* FIX LOGO EM TELAS ABAIXO DE 900PX
+   Mantém a marca no fluxo correto: abaixo do HUD e acima das cartas.
+*/
+@media screen and (max-width: 900px){
+
+  #gameScreen > header.hud{
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    height: 130px !important;
+    padding: 16px !important;
+    margin: 0 !important;
+    z-index: 80 !important;
+  }
+
+  #gameScreen .game-logo-wrapper.game-logo-in-game{
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    width: 100% !important;
+    margin: 10px auto 16px auto !important;
+    padding: 0 !important;
+    z-index: 30 !important;
+  }
+
+  #gameScreen .game-logo-wrapper.game-logo-in-game .game-logo{
+    display: block !important;
+    width: min(46vw, 220px) !important;
+    max-width: 220px !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+
+  #gameScreen #board,
+  #gameScreen .board{
+    margin-top: 0 !important;
+  }
+}
+
+@media screen and (max-width: 768px){
+  #gameScreen > header.hud{
+    height: 118px !important;
+    padding: 14px 10px 0 !important;
+  }
+
+  #gameScreen .game-logo-wrapper.game-logo-in-game{
+    margin: 12px auto 18px auto !important;
+  }
+
+  #gameScreen .game-logo-wrapper.game-logo-in-game .game-logo{
+    width: min(54vw, 210px) !important;
+    max-width: 210px !important;
+  }
+}
+
+@media screen and (max-width: 420px){
+  #gameScreen > header.hud{
+    height: 105px !important;
+    padding: 12px 8px 0 !important;
+  }
+
+  #gameScreen .game-logo-wrapper.game-logo-in-game{
+    margin: 10px auto 16px auto !important;
+  }
+
+  #gameScreen .game-logo-wrapper.game-logo-in-game .game-logo{
+    width: min(58vw, 190px) !important;
+    max-width: 190px !important;
+  }
+}
