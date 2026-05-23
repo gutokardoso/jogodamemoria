@@ -891,11 +891,7 @@ h1,
 
 /* garante que qualquer título textual antigo não apareça */
 h1.game-title,
-.game-title,
-.title-logo,
-.logo-title{
-  display:none !important;
-}
+
 
 /* afasta as cartas da marca e mantém tudo centralizado */
 .cards-grid,
@@ -945,5 +941,71 @@ h1.game-title,
   #cardsGrid,
   #gameBoard{
     margin-top:12px !important;
+  }
+}
+
+
+/* Marca apenas na tela do jogo */
+.game-logo-in-game{
+  position:relative !important;
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+
+  width:100% !important;
+
+  margin:10px auto 18px !important;
+
+  z-index:25 !important;
+  pointer-events:none !important;
+}
+
+.game-logo{
+  width:min(28vw, 320px) !important;
+  height:auto !important;
+  object-fit:contain !important;
+  display:block !important;
+}
+
+/* Espaço entre HUD e cartas */
+.cards-grid,
+.game-board,
+.board,
+.memory-grid,
+#cardsGrid,
+#gameBoard{
+  margin-top:12px !important;
+}
+
+/* Mobile */
+@media (max-width:768px){
+
+  .game-logo-in-game{
+    margin:8px auto 16px !important;
+  }
+
+  .game-logo{
+    width:min(54vw, 240px) !important;
+  }
+
+  .cards-grid,
+  .game-board,
+  .board,
+  .memory-grid,
+  #cardsGrid,
+  #gameBoard{
+    margin-top:16px !important;
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width:420px){
+
+  .game-logo{
+    width:min(58vw, 210px) !important;
+  }
+
+  .game-logo-in-game{
+    margin:6px auto 14px !important;
   }
 }
