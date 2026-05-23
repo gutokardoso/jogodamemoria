@@ -2748,8 +2748,7 @@ body > .game-logo-wrapper{
 
 @media(max-width:900px){
   .victory-result-image{
-    width:min(88vw, 680px) !important;
-    max-height:34vh !important;
+    width:min(78vw, 560px) !important;
     margin:18px auto 24px !important;
   }
 }
@@ -2844,5 +2843,28 @@ body > .game-logo-wrapper{
   .result-buttons button{
     width:78vw !important;
     max-width:320px !important;
+  }
+}
+
+
+/* TESTADO — PARABENS MAIOR ABAIXO DE 900PX
+   Esta regra fica no final do CSS para sobrescrever as anteriores. */
+@media (max-width:900px){
+  .victory-result-image{
+    width:min(88vw, 680px) !important;
+    max-width:680px !important;
+    max-height:34vh !important;
+    height:auto !important;
+    object-fit:contain !important;
+  }
+}
+
+@media (max-width:520px){
+  .victory-result-image{
+    width:88vw !important;
+    max-width:88vw !important;
+    max-height:32vh !important;
+    height:auto !important;
+    object-fit:contain !important;
   }
 }
