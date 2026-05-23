@@ -1629,3 +1629,64 @@ body > .game-logo-wrapper{
   border:none !important;
   box-shadow:none !important;
 }
+
+
+/* REMOVER CAIXAS DA PONTUAÇÃO, PARES E HOME */
+
+.score-panel,
+.pairs-panel,
+.home-button{
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+  backdrop-filter:none !important;
+}
+
+.score-panel::before,
+.score-panel::after,
+.pairs-panel::before,
+.pairs-panel::after,
+.home-button::before,
+.home-button::after{
+  display:none !important;
+  content:none !important;
+}
+
+/* Mantém alinhamento premium */
+.right-panels{
+  gap:14px !important;
+  align-items:center !important;
+}
+
+/* Estilo dos textos */
+.score-panel span,
+.pairs-panel span{
+  color:#f4c64b !important;
+  opacity:.9 !important;
+  letter-spacing:.08em !important;
+}
+
+.score-panel strong,
+.pairs-panel strong{
+  color:#fff2b0 !important;
+  text-shadow:0 0 10px rgba(244,198,75,.55) !important;
+}
+
+/* Ícone home dourado */
+.home-button{
+  color:#f4c64b !important;
+  font-size:34px !important;
+  padding:0 !important;
+  width:auto !important;
+  height:auto !important;
+}
+
+@media (max-width:768px){
+  .right-panels{
+    gap:10px !important;
+  }
+
+  .home-button{
+    font-size:28px !important;
+  }
+}
