@@ -1,48 +1,41 @@
-<!doctype html>
-<html lang="pt-BR">
+
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jogo da Memória Premium</title>
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Jogo da Memória Premium</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main id="app">
-    <section id="startScreen" class="screen start-screen active" aria-label="Tela inicial">
-      <button id="startButton" class="start-hotspot" aria-label="Começar desafio"></button>
-    </section>
 
-    <section id="gameScreen" class="screen game-screen" aria-label="Tela do jogo">
-      <header class="hud">
-        <div class="panel timer-panel">
-          <div class="panel-icon">◷</div>
-          <div><span>TEMPO</span><strong id="timer">45s</strong></div>
-        </div>
+<div id="startScreen" class="screen">
+  <img class="bg" src="assets/start-bg.jpg">
 
-        <div class="game-title"><div class="crown">♛</div><div>JOGO DA</div><strong>MEMÓRIA</strong></div>
+  <div class="title-wrap">
+    <h1>JOGO DA MEMÓRIA</h1>
+  </div>
 
-        <div class="right-panels">
-          <div class="panel score-panel"><div class="panel-icon">★</div><div><span>PONTUAÇÃO</span><strong id="score">0000</strong></div></div>
-          <div class="panel pairs-panel"><div class="panel-icon">▱</div><div><span>PARES</span><strong id="pairs">0/8</strong></div></div>
-          <button id="homeButton" class="home-button" aria-label="Voltar para tela inicial">⌂</button>
-        </div>
-      </header>
+  <div class="center-card">
+    <img src="assets/card-back.png">
+  </div>
 
-      <div id="countdown" class="countdown show">3</div>
-      <section id="board" class="board" aria-label="Cartas do jogo"></section>
-    </section>
+  <button id="startBtn" class="start-button">
+    <img src="assets/button-start.png">
+    <span>COMEÇAR DESAFIO</span>
+  </button>
+</div>
 
-    <section id="resultScreen" class="screen result-screen" aria-label="Resultado">
-      <div class="result-card">
-        <h1 id="resultTitle">PARABÉNS!</h1>
-        <p id="resultText">VOCÊ VENCEU!</p>
-        <div class="final-score">PONTUAÇÃO FINAL <strong id="finalScore">0000</strong></div>
-        <button id="playAgain">JOGAR NOVAMENTE</button>
-        <button id="menuButton">MENU INICIAL</button>
-      </div>
-    </section>
-  </main>
-  <script src="script.js"></script>
+<div id="gameScreen" class="hidden">
+  <div class="hud">
+    <div class="hud-box">TEMPO<br><span id="time">45s</span></div>
+    <div class="hud-box">PONTUAÇÃO<br><span id="score">0000</span></div>
+    <div class="hud-box">PARES<br><span id="pairs">0/8</span></div>
+  </div>
+
+  <div id="grid" class="grid"></div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
