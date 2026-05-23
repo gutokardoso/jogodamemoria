@@ -97,3 +97,109 @@ object-fit:cover;
   justify-items: center !important;
   align-items: center !important;
 }
+
+
+/* Ajuste final: cartas próximas, todas visíveis, sem corte e sem scroll */
+html,
+body{
+  width:100% !important;
+  height:100% !important;
+  overflow:hidden !important;
+}
+
+.game-screen,
+#game-screen,
+.screen-game,
+.game-area,
+main{
+  overflow:hidden !important;
+}
+
+.cards-grid,
+.game-board,
+.board,
+.memory-grid,
+#cardsGrid,
+#gameBoard{
+  display:grid !important;
+  grid-template-columns:repeat(4, minmax(0, 1fr)) !important;
+  gap:clamp(6px, 0.9vw, 14px) !important;
+  column-gap:clamp(6px, 0.9vw, 14px) !important;
+  row-gap:clamp(6px, 0.9vw, 14px) !important;
+  width:min(78vw, 720px) !important;
+  max-height:calc(100vh - 190px) !important;
+  margin:0 auto !important;
+  justify-items:center !important;
+  align-items:center !important;
+  overflow:visible !important;
+}
+
+.game-card,
+.card,
+.memory-card{
+  width:min(100%, calc((100vh - 230px) / 4 * 0.66)) !important;
+  max-width:150px !important;
+  min-width:58px !important;
+  aspect-ratio:2 / 3 !important;
+  height:auto !important;
+  flex:0 0 auto !important;
+}
+
+.card-inner,
+.card-front,
+.card-back{
+  width:100% !important;
+  height:100% !important;
+  aspect-ratio:2 / 3 !important;
+}
+
+.card img,
+.game-card img,
+.memory-card img,
+.card-front img,
+.card-back img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+}
+
+/* Telas menores: reduz HUD/grade para caber sem scroll */
+@media (max-height: 760px){
+  .cards-grid,
+  .game-board,
+  .board,
+  .memory-grid,
+  #cardsGrid,
+  #gameBoard{
+    gap:6px !important;
+    width:min(70vw, 620px) !important;
+    max-height:calc(100vh - 145px) !important;
+  }
+
+  .game-card,
+  .card,
+  .memory-card{
+    max-width:118px !important;
+    width:min(100%, calc((100vh - 175px) / 4 * 0.66)) !important;
+  }
+}
+
+@media (max-width: 768px){
+  .cards-grid,
+  .game-board,
+  .board,
+  .memory-grid,
+  #cardsGrid,
+  #gameBoard{
+    width:min(94vw, 520px) !important;
+    gap:6px !important;
+    max-height:calc(100vh - 150px) !important;
+  }
+
+  .game-card,
+  .card,
+  .memory-card{
+    max-width:110px !important;
+    width:min(100%, calc((100vh - 180px) / 4 * 0.66)) !important;
+  }
+}
