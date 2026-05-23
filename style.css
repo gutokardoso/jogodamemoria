@@ -2845,3 +2845,18 @@ body > .game-logo-wrapper{
     max-width:320px !important;
   }
 }
+
+
+/* RESULTADO FINAL — EMPILHAR BOTÕES ABAIXO DE 900PX */
+@media (max-width: 900px){
+  .result-buttons{
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 14px !important;
+  }
+
+  .result-buttons > *{
+    width: min(78vw, 360px) !important;
+  }
+}
