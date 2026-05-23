@@ -1298,84 +1298,6 @@ body > .game-logo-wrapper{
 }
 
 
-/* FIX DO FLIP DAS CARTAS
-   Mantém a proporção correta sem quebrar a animação 3D.
-*/
-
-.card,
-.game-card,
-.memory-card{
-  position: relative !important;
-  width: clamp(64px, 18vw, 120px) !important;
-  aspect-ratio: 168 / 215 !important;
-  height: auto !important;
-
-  perspective: 1000px !important;
-  transform-style: preserve-3d !important;
-
-  overflow: visible !important;
-  background: transparent !important;
-  border: 0 !important;
-  padding: 0 !important;
-}
-
-/* o elemento que gira */
-.card-inner{
-  position: relative !important;
-  width: 100% !important;
-  height: 100% !important;
-
-  transform-style: preserve-3d !important;
-  transition: transform .6s ease !important;
-}
-
-/* faces da carta */
-.card-front,
-.card-back{
-  position: absolute !important;
-  inset: 0 !important;
-
-  width: 100% !important;
-  height: 100% !important;
-
-  backface-visibility: hidden !important;
-  -webkit-backface-visibility: hidden !important;
-
-  overflow: hidden !important;
-  border-radius: 14px !important;
-}
-
-/* frente */
-.card-front{
-  transform: rotateY(180deg) !important;
-}
-
-/* verso */
-.card-back{
-  transform: rotateY(0deg) !important;
-}
-
-/* estado virado */
-.card.flipped .card-inner,
-.game-card.flipped .card-inner,
-.memory-card.flipped .card-inner{
-  transform: rotateY(180deg) !important;
-}
-
-/* imagens ocupando todo o espaço sem distorcer */
-.card-front img,
-.card-back img,
-.card img{
-  width: 100% !important;
-  height: 100% !important;
-
-  object-fit: cover !important;
-  object-position: center center !important;
-
-  display: block !important;
-}
-
-/* Mobile */
 @media (max-width:768px){
 
   .card,
@@ -1394,4 +1316,81 @@ body > .game-logo-wrapper{
     width: clamp(58px, 20vw, 78px) !important;
     aspect-ratio: 168 / 215 !important;
   }
+}
+
+
+/* FIX DEFINITIVO DO FRONT/BACK DAS CARTAS */
+
+/* estrutura principal */
+.card,
+.game-card,
+.memory-card{
+  position:relative !important;
+  perspective:1200px !important;
+  transform-style:preserve-3d !important;
+}
+
+/* camada que gira */
+.card-inner{
+  position:relative !important;
+  width:100% !important;
+  height:100% !important;
+  transform-style:preserve-3d !important;
+  transition:transform .6s ease !important;
+}
+
+/* frente e verso */
+.card-front,
+.card-back{
+  position:absolute !important;
+  inset:0 !important;
+
+  width:100% !important;
+  height:100% !important;
+
+  border-radius:14px !important;
+  overflow:hidden !important;
+
+  backface-visibility:hidden !important;
+  -webkit-backface-visibility:hidden !important;
+
+  transform-style:preserve-3d !important;
+}
+
+/* VERSO DA CARTA (ícone) */
+.card-back{
+  transform:rotateY(0deg) !important;
+  z-index:2 !important;
+}
+
+/* FRENTE DA CARTA (imagem revelada) */
+.card-front{
+  transform:rotateY(180deg) !important;
+  z-index:1 !important;
+}
+
+/* carta virada */
+.card.flipped .card-inner,
+.game-card.flipped .card-inner,
+.memory-card.flipped .card-inner{
+  transform:rotateY(180deg) !important;
+}
+
+/* imagens */
+.card-front img,
+.card-back img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+  display:block !important;
+}
+
+/* remove qualquer regra antiga conflitante */
+.card-front{
+  display:block !important;
+}
+
+.card-back{
+  display:block !important;
 }
