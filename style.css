@@ -50,3 +50,50 @@ object-fit:cover;
   box-shadow: none !important;
   filter: none !important;
 }
+
+
+/* Correção: cartas com formato fixo, sem distorcer conforme a tela */
+.game-card,
+.card,
+.memory-card,
+.card-inner,
+.card-front,
+.card-back{
+  aspect-ratio: 2 / 3 !important;
+}
+
+.game-card,
+.card,
+.memory-card{
+  width: clamp(82px, 9vw, 150px) !important;
+  height: auto !important;
+  min-height: unset !important;
+  max-height: unset !important;
+  flex: 0 0 auto !important;
+}
+
+.card-inner,
+.card-front,
+.card-back{
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.card img,
+.game-card img,
+.memory-card img,
+.card-front img,
+.card-back img{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* Mantém a grade centralizada sem esticar as cartas */
+.cards-grid,
+.game-board,
+.board,
+.memory-grid{
+  justify-items: center !important;
+  align-items: center !important;
+}
