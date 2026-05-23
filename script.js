@@ -84,8 +84,8 @@ if(win){
     resultScreenEl.style.setProperty('background-repeat','no-repeat','important');
   }
 }else{
-  resultTitle.textContent='TENTE NOVAMENTE!';
-  resultText.textContent='VOCÊ PERDEU!';
+  resultTitle.textContent='TEMPO ESGOTADO!';
+  resultText.textContent='TENTE NOVAMENTE!';
   if(resultTextImage){
     resultTextImage.style.display='none';
   }
