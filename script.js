@@ -11,6 +11,7 @@ const scoreEl=document.getElementById('score');
 const pairsEl=document.getElementById('pairs');
 const countdownEl=document.getElementById('countdown');
 const finalScore=document.getElementById('finalScore');
+const finalTime=document.getElementById('finalTime');
 const resultTitle=document.getElementById('resultTitle');
 const resultText=document.getElementById('resultText');
 const icons=['💎','🚀','👑','⚽','🦋','⭐','⚡','🏆'];
