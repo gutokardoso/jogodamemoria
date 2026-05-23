@@ -1255,86 +1255,6 @@ body > .game-logo-wrapper{
 }
 
 
-/* FIX REAL DA PROPORÇÃO DA CARTA
-   A caixa passa a ter a mesma proporção do PNG da carta e a imagem ocupa 100%.
-   Isso elimina a sensação de carta espremida no mobile.
-*/
-.card,
-.game-card,
-.memory-card{
-  width: clamp(64px, 18vw, 120px) !important;
-  height: auto !important;
-  aspect-ratio: 168 / 215 !important;
-
-  padding: 0 !important;
-  border: 0 !important;
-  background: transparent !important;
-  overflow: hidden !important;
-  box-sizing: border-box !important;
-}
-
-.card-inner,
-.card-front,
-.card-back,
-.card-face,
-.front,
-.back{
-  width: 100% !important;
-  height: 100% !important;
-  aspect-ratio: 168 / 215 !important;
-
-  padding: 0 !important;
-  margin: 0 !important;
-  border: 0 !important;
-  background: transparent !important;
-  overflow: hidden !important;
-  box-sizing: border-box !important;
-}
-
-.card img,
-.game-card img,
-.memory-card img,
-.card-inner img,
-.card-front img,
-.card-back img,
-.card-face img,
-.front img,
-.back img{
-  width: 100% !important;
-  height: 100% !important;
-
-  max-width: none !important;
-  max-height: none !important;
-
-  object-fit: fill !important;
-  object-position: center center !important;
-
-  display: block !important;
-  margin: 0 !important;
-  padding: 0 !important;
-
-  border: 0 !important;
-  box-sizing: border-box !important;
-}
-
-/* O tabuleiro continua com espaçamento igual entre linhas e colunas */
-.cards-grid,
-.game-board,
-.board,
-.memory-grid,
-#cardsGrid,
-#gameBoard{
-  display: grid !important;
-  grid-template-columns: repeat(4, auto) !important;
-  gap: 6px !important;
-  row-gap: 6px !important;
-  column-gap: 6px !important;
-  justify-content: center !important;
-  align-content: center !important;
-  justify-items: center !important;
-  align-items: center !important;
-}
-
 @media (max-width: 768px){
   .card,
   .game-card,
@@ -1374,5 +1294,104 @@ body > .game-logo-wrapper{
     gap: 4px !important;
     row-gap: 4px !important;
     column-gap: 4px !important;
+  }
+}
+
+
+/* FIX DO FLIP DAS CARTAS
+   Mantém a proporção correta sem quebrar a animação 3D.
+*/
+
+.card,
+.game-card,
+.memory-card{
+  position: relative !important;
+  width: clamp(64px, 18vw, 120px) !important;
+  aspect-ratio: 168 / 215 !important;
+  height: auto !important;
+
+  perspective: 1000px !important;
+  transform-style: preserve-3d !important;
+
+  overflow: visible !important;
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+}
+
+/* o elemento que gira */
+.card-inner{
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+
+  transform-style: preserve-3d !important;
+  transition: transform .6s ease !important;
+}
+
+/* faces da carta */
+.card-front,
+.card-back{
+  position: absolute !important;
+  inset: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+
+  overflow: hidden !important;
+  border-radius: 14px !important;
+}
+
+/* frente */
+.card-front{
+  transform: rotateY(180deg) !important;
+}
+
+/* verso */
+.card-back{
+  transform: rotateY(0deg) !important;
+}
+
+/* estado virado */
+.card.flipped .card-inner,
+.game-card.flipped .card-inner,
+.memory-card.flipped .card-inner{
+  transform: rotateY(180deg) !important;
+}
+
+/* imagens ocupando todo o espaço sem distorcer */
+.card-front img,
+.card-back img,
+.card img{
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover !important;
+  object-position: center center !important;
+
+  display: block !important;
+}
+
+/* Mobile */
+@media (max-width:768px){
+
+  .card,
+  .game-card,
+  .memory-card{
+    width: clamp(62px, 19vw, 88px) !important;
+    aspect-ratio: 168 / 215 !important;
+  }
+}
+
+@media (max-width:420px){
+
+  .card,
+  .game-card,
+  .memory-card{
+    width: clamp(58px, 20vw, 78px) !important;
+    aspect-ratio: 168 / 215 !important;
   }
 }
