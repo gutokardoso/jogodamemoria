@@ -1690,3 +1690,36 @@ body > .game-logo-wrapper{
     font-size:28px !important;
   }
 }
+
+
+/* HOME PNG */
+.home-button{
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+  width:72px !important;
+  height:72px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:0 !important;
+}
+
+.home-button img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+  display:block !important;
+}
+
+.score-panel .panel-icon,
+.pairs-panel .panel-icon{
+  display:none !important;
+}
+
+@media (max-width:768px){
+  .home-button{
+    width:58px !important;
+    height:58px !important;
+  }
+}
