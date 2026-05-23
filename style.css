@@ -1816,32 +1816,41 @@ body > .game-logo-wrapper{
 }
 
 
-/* HUD DESKTOP COM MESMO ESPAÇAMENTO DO 768PX */
 
+
+
+
+}
+
+
+
+
+
+/* HUD DESKTOP MAIS PRÓXIMO DO TOPO — IGUAL DISTÂNCIA VISUAL DO 768PX */
 @media (min-width: 901px){
 
-  .hud,
-  .top-bar,
-  .game-header,
-  .scoreboard{
-    margin-top:0 !important;
-    margin-bottom:-14px !important;
+  .game-screen .hud{
+    position: absolute !important;
+    top: 8px !important;
+    left: 0 !important;
+    right: 0 !important;
+
+    width: 100% !important;
+    margin: 0 auto !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 14px !important;
+
+    z-index: 80 !important;
   }
-}
 
+  .game-screen{
+    padding-top: 0 !important;
+  }
 
-
-}
-
-
-/* DESKTOP COM MESMO MARGIN-TOP DO MOBILE <=768PX */
-
-@media (min-width: 901px){
-
-  .hud,
-  .top-bar,
-  .game-header,
-  .scoreboard{
-    margin-top:0 !important;
+  .game-logo-wrapper.game-logo-in-game{
+    margin-top: 108px !important;
   }
 }
