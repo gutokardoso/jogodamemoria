@@ -1745,3 +1745,51 @@ body > .game-logo-wrapper{
     height:58px !important;
   }
 }
+
+
+/* REMOVER PONTUAÇÃO E CENTRALIZAR TOPO */
+
+.hud{
+  width:100% !important;
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  gap:26px !important;
+}
+
+.right-panels{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:26px !important;
+}
+
+.timer-panel,
+.pairs-panel,
+.home-button{
+  flex:none !important;
+}
+
+.score-panel{
+  display:none !important;
+}
+
+@media (max-width:768px){
+  .hud{
+    gap:14px !important;
+  }
+
+  .right-panels{
+    gap:14px !important;
+  }
+}
+
+@media (max-width:420px){
+  .hud{
+    gap:10px !important;
+  }
+
+  .right-panels{
+    gap:10px !important;
+  }
+}
