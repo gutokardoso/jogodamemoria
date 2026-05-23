@@ -20,7 +20,7 @@ function updateTimerRing(){
   if(!timerProgress)return;
   const progress=Math.max(0,time)/TIMER_TOTAL;
   timerProgress.style.strokeDasharray=TIMER_CIRCUMFERENCE;
-  timerProgress.style.strokeDashoffset=TIMER_CIRCUMFERENCE*(1-progress);
+  timerProgress.style.strokeDashoffset=-TIMER_CIRCUMFERENCE*(1-progress);
 }
 
 function show(screen){[startScreen,gameScreen,resultScreen].forEach(s=>s.classList.remove('active'));screen.classList.add('active')}

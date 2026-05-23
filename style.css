@@ -1606,3 +1606,26 @@ body > .game-logo-wrapper{
     font-size:20px !important;
   }
 }
+
+
+/* TIMER SEM CAIXA + SENTIDO HORÁRIO */
+.timer-panel{
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+  backdrop-filter:none !important;
+  padding:0 !important;
+  min-width:auto !important;
+}
+
+.timer-panel::before,
+.timer-panel::after{
+  display:none !important;
+  content:none !important;
+}
+
+.timer-ring{
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+}
