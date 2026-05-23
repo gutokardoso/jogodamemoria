@@ -1965,154 +1965,536 @@ body > .game-logo-wrapper{
 }
 
 
-/* MOBILE — ESPAÇAMENTO UNIFORME ENTRE CARTAS */
-@media (max-width:768px){
+/* ==========================================================
+   LAYOUT ESTÁVEL FINAL — NÃO ALTERAR
+   Corrige distorção das cartas e espaçamentos em desktop/tablet/mobile.
+   ========================================================== */
 
-  .game-board,
-  #board{
-    gap:10px !important;
-    row-gap:10px !important;
-    column-gap:10px !important;
+/* HUD estável */
+#gameScreen > header.hud{
+  position:relative !important;
+  z-index:80 !important;
+  height:120px !important;
+  padding:18px 0 0 !important;
+  margin:0 !important;
+  width:100% !important;
+  display:flex !important;
+  align-items:flex-start !important;
+  justify-content:center !important;
+  gap:14px !important;
+  transform:none !important;
+}
+
+#gameScreen > header.hud .right-panels{
+  display:flex !important;
+  align-items:flex-start !important;
+  justify-content:center !important;
+  gap:14px !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+
+.timer-ring,
+.home-button{
+  width:80px !important;
+  height:80px !important;
+}
+
+/* Logo sempre no fluxo entre HUD e cartas */
+#gameScreen .game-logo-wrapper.game-logo-in-game{
+  position:relative !important;
+  inset:auto !important;
+  transform:none !important;
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  width:100% !important;
+  margin:6px auto 22px !important;
+  padding:0 !important;
+  z-index:40 !important;
+  pointer-events:none !important;
+}
+
+#gameScreen .game-logo-wrapper.game-logo-in-game .game-logo{
+  width:min(28vw, 300px) !important;
+  max-width:300px !important;
+  min-width:180px !important;
+  height:auto !important;
+  object-fit:contain !important;
+  display:block !important;
+}
+
+/* Board base: linhas e colunas automáticas, nunca 1fr */
+#board.board{
+  position:relative !important;
+  z-index:20 !important;
+  display:grid !important;
+  grid-template-columns:repeat(4, 120px) !important;
+  grid-template-rows:repeat(4, 154px) !important;
+  grid-auto-rows:154px !important;
+  gap:14px !important;
+  row-gap:14px !important;
+  column-gap:14px !important;
+  width:auto !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  margin:0 auto !important;
+  padding:0 0 24px !important;
+  place-content:start center !important;
+  place-items:center !important;
+  overflow:visible !important;
+}
+
+#board.board > .card{
+  width:120px !important;
+  height:154px !important;
+  min-width:120px !important;
+  min-height:154px !important;
+  max-width:120px !important;
+  max-height:154px !important;
+  aspect-ratio:168 / 215 !important;
+  margin:0 !important;
+  padding:0 !important;
+  flex:none !important;
+  background:transparent !important;
+  border:0 !important;
+  overflow:visible !important;
+}
+
+#board.board > .card .card-inner,
+#board.board > .card .card-face,
+#board.board > .card .card-front,
+#board.board > .card .card-back{
+  width:100% !important;
+  height:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  box-sizing:border-box !important;
+}
+
+/* Desktop largo */
+@media (min-width:901px){
+  #gameScreen > header.hud{
+    height:105px !important;
+    padding-top:12px !important;
   }
-
-  .memory-card{
-    margin:0 !important;
+  #gameScreen .game-logo-wrapper.game-logo-in-game{
+    margin:2px auto 18px !important;
+  }
+  #gameScreen .game-logo-wrapper.game-logo-in-game .game-logo{
+    width:min(24vw, 280px) !important;
+  }
+  #board.board{
+    grid-template-columns:repeat(4, 104px) !important;
+    grid-template-rows:repeat(4, 133px) !important;
+    grid-auto-rows:133px !important;
+    gap:12px !important;
+    row-gap:12px !important;
+    column-gap:12px !important;
+    padding-bottom:26px !important;
+  }
+  #board.board > .card{
+    width:104px !important;
+    height:133px !important;
+    min-width:104px !important;
+    min-height:133px !important;
+    max-width:104px !important;
+    max-height:133px !important;
   }
 }
 
-
-/* iPHONE/MOBILE — CORREÇÃO REAL DO ESPAÇAMENTO VERTICAL ENTRE FILEIRAS
-   O espaço maior vinha do grid ocupando altura demais e distribuindo as linhas.
-   Aqui o board passa a ter altura automática e row-gap = column-gap.
-*/
-@media (max-width: 768px){
-
-  #board.board,
-  .board,
-  .game-board,
-  .cards-grid,
-  .memory-grid,
-  #cardsGrid,
-  #gameBoard{
-    display:grid !important;
-    grid-template-columns:repeat(4, auto) !important;
-
+/* Tablet / telas abaixo de 900px */
+@media (max-width:900px){
+  #gameScreen > header.hud{
+    height:124px !important;
+    padding:16px 0 0 !important;
+  }
+  #gameScreen .game-logo-wrapper.game-logo-in-game{
+    margin:8px auto 22px !important;
+  }
+  #gameScreen .game-logo-wrapper.game-logo-in-game .game-logo{
+    width:min(42vw, 250px) !important;
+    max-width:250px !important;
+  }
+  #board.board{
+    grid-template-columns:repeat(4, 82px) !important;
+    grid-template-rows:repeat(4, 105px) !important;
+    grid-auto-rows:105px !important;
     gap:10px !important;
     row-gap:10px !important;
     column-gap:10px !important;
-
-    height:auto !important;
-    min-height:0 !important;
-    max-height:none !important;
-
-    align-content:start !important;
-    justify-content:center !important;
-    align-items:start !important;
-    justify-items:center !important;
-
-    margin:0 auto !important;
-    padding:0 !important;
-
-    overflow:visible !important;
+    padding-bottom:30px !important;
   }
+  #board.board > .card{
+    width:82px !important;
+    height:105px !important;
+    min-width:82px !important;
+    min-height:105px !important;
+    max-width:82px !important;
+    max-height:105px !important;
+  }
+}
 
-  #board.board .card,
-  .board .card,
-  .game-card,
-  .memory-card{
-    margin:0 !important;
+/* iPhone / mobile */
+@media (max-width:768px){
+  #gameScreen > header.hud{
+    height:116px !important;
+    padding:14px 0 0 !important;
+    gap:14px !important;
+  }
+  #gameScreen > header.hud .right-panels{
+    gap:14px !important;
+  }
+  .timer-ring,
+  .home-button{
+    width:66px !important;
+    height:66px !important;
+  }
+  #gameScreen .game-logo-wrapper.game-logo-in-game{
+    margin:8px auto 24px !important;
+  }
+  #gameScreen .game-logo-wrapper.game-logo-in-game .game-logo{
+    width:min(50vw, 220px) !important;
+    max-width:220px !important;
+    min-width:165px !important;
+  }
+  #board.board{
+    grid-template-columns:repeat(4, 74px) !important;
+    grid-template-rows:repeat(4, 95px) !important;
+    grid-auto-rows:95px !important;
+    gap:10px !important;
+    row-gap:10px !important;
+    column-gap:10px !important;
+    padding-bottom:42px !important;
+  }
+  #board.board > .card{
+    width:74px !important;
+    height:95px !important;
+    min-width:74px !important;
+    min-height:95px !important;
+    max-width:74px !important;
+    max-height:95px !important;
   }
 }
 
 /* iPhone menor */
-@media (max-width: 420px){
-
-  #board.board,
-  .board,
-  .game-board,
-  .cards-grid,
-  .memory-grid,
-  #cardsGrid,
-  #gameBoard{
-    gap:8px !important;
-    row-gap:8px !important;
-    column-gap:8px !important;
+@media (max-width:420px){
+  #gameScreen > header.hud{
+    height:112px !important;
+    padding-top:14px !important;
+  }
+  #gameScreen .game-logo-wrapper.game-logo-in-game{
+    margin:8px auto 22px !important;
+  }
+  #gameScreen .game-logo-wrapper.game-logo-in-game .game-logo{
+    width:min(54vw, 200px) !important;
+    max-width:200px !important;
+    min-width:150px !important;
+  }
+  #board.board{
+    grid-template-columns:repeat(4, 68px) !important;
+    grid-template-rows:repeat(4, 87px) !important;
+    grid-auto-rows:87px !important;
+    gap:9px !important;
+    row-gap:9px !important;
+    column-gap:9px !important;
+    padding-bottom:48px !important;
+  }
+  #board.board > .card{
+    width:68px !important;
+    height:87px !important;
+    min-width:68px !important;
+    min-height:87px !important;
+    max-width:68px !important;
+    max-height:87px !important;
   }
 }
 
-
-/* CORREÇÃO DEFINITIVA DO ESPAÇAMENTO ENTRE FILEIRAS NO IPHONE
-   O problema era o CSS original:
-   .board{ height:min(760px,72vh); grid-template-rows:repeat(4,1fr); }
-   Isso fazia cada linha ocupar 1 fração de uma altura grande, abrindo espaços verticais.
-   Agora as linhas têm altura automática, baseada na altura real da carta.
-*/
-@media (max-width: 768px){
-
-  section#board.board,
+/* Alturas muito pequenas: reduz para caber sem distorcer */
+@media (max-height:700px) and (max-width:768px){
+  #gameScreen > header.hud{
+    height:96px !important;
+    padding-top:10px !important;
+  }
+  .timer-ring,
+  .home-button{
+    width:58px !important;
+    height:58px !important;
+  }
+  #gameScreen .game-logo-wrapper.game-logo-in-game{
+    margin:4px auto 14px !important;
+  }
+  #gameScreen .game-logo-wrapper.game-logo-in-game .game-logo{
+    max-width:170px !important;
+  }
   #board.board{
-    height:auto !important;
-    min-height:0 !important;
-    max-height:none !important;
+    grid-template-columns:repeat(4, 60px) !important;
+    grid-template-rows:repeat(4, 77px) !important;
+    grid-auto-rows:77px !important;
+    gap:7px !important;
+    row-gap:7px !important;
+    column-gap:7px !important;
+    padding-bottom:32px !important;
+  }
+  #board.board > .card{
+    width:60px !important;
+    height:77px !important;
+    min-width:60px !important;
+    min-height:77px !important;
+    max-width:60px !important;
+    max-height:77px !important;
+  }
+}
 
-    display:grid !important;
-    grid-template-columns:repeat(4, auto) !important;
-    grid-template-rows:repeat(4, auto) !important;
-    grid-auto-rows:auto !important;
+/* Garantia: elementos internos seguem a carta */
+#board.board > .card .card-face{
+  background-size:100% 100% !important;
+  background-position:center !important;
+  background-repeat:no-repeat !important;
+}
 
+
+/* ==========================================================
+   LAYOUT ESTÁVEL FINAL V2 — TESTADO POR CÁLCULO
+   Mantém 16 cartas visíveis, proporção 168/215 e respiro inferior.
+   ========================================================== */
+
+#gameScreen > header.hud{
+  position:relative !important;
+  z-index:80 !important;
+  height:105px !important;
+  padding:12px 0 0 !important;
+  margin:0 !important;
+  width:100% !important;
+  display:flex !important;
+  align-items:flex-start !important;
+  justify-content:center !important;
+  gap:14px !important;
+  transform:none !important;
+}
+#gameScreen > header.hud .right-panels{
+  display:flex !important;
+  align-items:flex-start !important;
+  justify-content:center !important;
+  gap:14px !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+.timer-ring,.home-button{
+  width:80px !important;
+  height:80px !important;
+}
+#gameScreen .game-logo-wrapper.game-logo-in-game{
+  position:relative !important;
+  inset:auto !important;
+  transform:none !important;
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  width:100% !important;
+  margin:4px auto 14px !important;
+  padding:0 !important;
+  z-index:40 !important;
+  pointer-events:none !important;
+}
+#gameScreen .game-logo-wrapper.game-logo-in-game .game-logo{
+  width:240px !important;
+  max-width:240px !important;
+  min-width:0 !important;
+  height:auto !important;
+  object-fit:contain !important;
+  display:block !important;
+}
+
+/* Board: dimensões reais, sem 1fr na vertical */
+#board.board{
+  position:relative !important;
+  z-index:20 !important;
+  display:grid !important;
+  grid-template-columns:repeat(4, 92px) !important;
+  grid-template-rows:repeat(4, 118px) !important;
+  grid-auto-rows:118px !important;
+  gap:10px !important;
+  row-gap:10px !important;
+  column-gap:10px !important;
+  width:auto !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  margin:0 auto !important;
+  padding:0 0 24px !important;
+  place-content:start center !important;
+  place-items:center !important;
+  overflow:visible !important;
+}
+#board.board > .card{
+  width:92px !important;
+  height:118px !important;
+  min-width:92px !important;
+  min-height:118px !important;
+  max-width:92px !important;
+  max-height:118px !important;
+  aspect-ratio:168/215 !important;
+  margin:0 !important;
+  padding:0 !important;
+  flex:none !important;
+  background:transparent !important;
+  border:0 !important;
+  overflow:visible !important;
+}
+#board.board > .card .card-inner,
+#board.board > .card .card-face,
+#board.board > .card .card-front,
+#board.board > .card .card-back{
+  width:100% !important;
+  height:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  box-sizing:border-box !important;
+}
+#board.board > .card .card-face{
+  background-size:100% 100% !important;
+  background-position:center !important;
+  background-repeat:no-repeat !important;
+}
+
+/* Tablet / telas abaixo de 900px */
+@media (max-width:900px){
+  #gameScreen > header.hud{
+    height:120px !important;
+    padding:14px 0 0 !important;
+    gap:14px !important;
+  }
+  #gameScreen .game-logo-wrapper.game-logo-in-game{
+    margin:8px auto 20px !important;
+  }
+  #gameScreen .game-logo-wrapper.game-logo-in-game .game-logo{
+    width:min(42vw, 230px) !important;
+    max-width:230px !important;
+  }
+  #board.board{
+    grid-template-columns:repeat(4, 78px) !important;
+    grid-template-rows:repeat(4, 100px) !important;
+    grid-auto-rows:100px !important;
     gap:10px !important;
     row-gap:10px !important;
     column-gap:10px !important;
-
-    align-content:start !important;
-    justify-content:center !important;
-    place-content:start center !important;
-
-    align-items:center !important;
-    justify-items:center !important;
-    place-items:center !important;
-
-    margin:0 auto !important;
-    padding:0 !important;
+    padding-bottom:34px !important;
   }
-
-  section#board.board > .card,
   #board.board > .card{
-    width:clamp(62px, 19vw, 88px) !important;
-    height:auto !important;
-    aspect-ratio:168 / 215 !important;
-    margin:0 !important;
+    width:78px !important;
+    height:100px !important;
+    min-width:78px !important;
+    min-height:100px !important;
+    max-width:78px !important;
+    max-height:100px !important;
   }
 }
 
-@media (max-width: 420px){
-
-  section#board.board,
+/* iPhone / mobile */
+@media (max-width:768px){
+  #gameScreen > header.hud{
+    height:112px !important;
+    padding:14px 0 0 !important;
+    gap:14px !important;
+  }
+  #gameScreen > header.hud .right-panels{ gap:14px !important; }
+  .timer-ring,.home-button{
+    width:66px !important;
+    height:66px !important;
+  }
+  #gameScreen .game-logo-wrapper.game-logo-in-game{
+    margin:8px auto 22px !important;
+  }
+  #gameScreen .game-logo-wrapper.game-logo-in-game .game-logo{
+    width:min(50vw, 205px) !important;
+    max-width:205px !important;
+    min-width:150px !important;
+  }
   #board.board{
+    grid-template-columns:repeat(4, 66px) !important;
+    grid-template-rows:repeat(4, 84px) !important;
+    grid-auto-rows:84px !important;
+    gap:9px !important;
+    row-gap:9px !important;
+    column-gap:9px !important;
+    padding-bottom:48px !important;
+  }
+  #board.board > .card{
+    width:66px !important;
+    height:84px !important;
+    min-width:66px !important;
+    min-height:84px !important;
+    max-width:66px !important;
+    max-height:84px !important;
+  }
+}
+
+/* iPhone pequeno */
+@media (max-width:420px){
+  #gameScreen > header.hud{
+    height:110px !important;
+    padding-top:14px !important;
+  }
+  #gameScreen .game-logo-wrapper.game-logo-in-game{
+    margin:8px auto 20px !important;
+  }
+  #gameScreen .game-logo-wrapper.game-logo-in-game .game-logo{
+    width:min(54vw, 195px) !important;
+    max-width:195px !important;
+    min-width:145px !important;
+  }
+  #board.board{
+    grid-template-columns:repeat(4, 64px) !important;
+    grid-template-rows:repeat(4, 82px) !important;
+    grid-auto-rows:82px !important;
     gap:8px !important;
     row-gap:8px !important;
     column-gap:8px !important;
-    grid-template-rows:repeat(4, auto) !important;
-    grid-auto-rows:auto !important;
+    padding-bottom:52px !important;
   }
-
-  section#board.board > .card,
   #board.board > .card{
-    width:clamp(58px, 20vw, 78px) !important;
-    height:auto !important;
-    aspect-ratio:168 / 215 !important;
+    width:64px !important;
+    height:82px !important;
+    min-width:64px !important;
+    min-height:82px !important;
+    max-width:64px !important;
+    max-height:82px !important;
   }
 }
 
-/* BACKUP CSS — MOBILE GRID SEM ESPAÇO VERTICAL EXTRA */
-@media (max-width:768px){
+/* Altura pequena */
+@media (max-height:700px) and (max-width:768px){
+  #gameScreen > header.hud{
+    height:94px !important;
+    padding-top:10px !important;
+  }
+  .timer-ring,.home-button{
+    width:58px !important;
+    height:58px !important;
+  }
+  #gameScreen .game-logo-wrapper.game-logo-in-game{
+    margin:4px auto 12px !important;
+  }
+  #gameScreen .game-logo-wrapper.game-logo-in-game .game-logo{
+    max-width:165px !important;
+  }
   #board.board{
-    height:auto !important;
-    min-height:0 !important;
-    max-height:none !important;
-    grid-template-rows:repeat(4, auto) !important;
-    grid-auto-rows:auto !important;
-    align-content:start !important;
-    place-content:start center !important;
+    grid-template-columns:repeat(4, 58px) !important;
+    grid-template-rows:repeat(4, 74px) !important;
+    grid-auto-rows:74px !important;
+    gap:7px !important;
+    row-gap:7px !important;
+    column-gap:7px !important;
+    padding-bottom:36px !important;
+  }
+  #board.board > .card{
+    width:58px !important;
+    height:74px !important;
+    min-width:58px !important;
+    min-height:74px !important;
+    max-width:58px !important;
+    max-height:74px !important;
   }
 }
