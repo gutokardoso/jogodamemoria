@@ -6,6 +6,39 @@
   <title>Jogo da Memória Premium</title>
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="stylesheet" href="style.css" />
+
+<style id="hud-top-fix">
+@media screen and (min-width:901px){
+  #gameScreen > header.hud{
+    position:absolute !important;
+    top:0 !important;
+    left:0 !important;
+    right:0 !important;
+    width:100% !important;
+    height:100px !important;
+    padding:8px 0 0 !important;
+    margin:0 !important;
+    display:flex !important;
+    justify-content:center !important;
+    align-items:flex-start !important;
+    gap:14px !important;
+    transform:none !important;
+    z-index:99999 !important;
+  }
+  #gameScreen > header.hud .right-panels{
+    display:flex !important;
+    align-items:flex-start !important;
+    justify-content:center !important;
+    gap:14px !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+  #gameScreen .game-logo-wrapper.game-logo-in-game{
+    margin-top:118px !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <img src="./assets/start-bg-clean.jpg" class="start-bg" alt="">
