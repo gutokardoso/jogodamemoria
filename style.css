@@ -1814,3 +1814,17 @@ body > .game-logo-wrapper{
   width:80px !important;
   height:80px !important;
 }
+
+
+/* HUD DESKTOP COM MESMO ESPAÇAMENTO DO 768PX */
+
+@media (min-width: 901px){
+
+  .hud,
+  .top-bar,
+  .game-header,
+  .scoreboard{
+    margin-top:0 !important;
+    margin-bottom:-14px !important;
+  }
+}
