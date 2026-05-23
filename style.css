@@ -1979,3 +1979,63 @@ body > .game-logo-wrapper{
     margin:0 !important;
   }
 }
+
+
+/* iPHONE/MOBILE — CORREÇÃO REAL DO ESPAÇAMENTO VERTICAL ENTRE FILEIRAS
+   O espaço maior vinha do grid ocupando altura demais e distribuindo as linhas.
+   Aqui o board passa a ter altura automática e row-gap = column-gap.
+*/
+@media (max-width: 768px){
+
+  #board.board,
+  .board,
+  .game-board,
+  .cards-grid,
+  .memory-grid,
+  #cardsGrid,
+  #gameBoard{
+    display:grid !important;
+    grid-template-columns:repeat(4, auto) !important;
+
+    gap:10px !important;
+    row-gap:10px !important;
+    column-gap:10px !important;
+
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+
+    align-content:start !important;
+    justify-content:center !important;
+    align-items:start !important;
+    justify-items:center !important;
+
+    margin:0 auto !important;
+    padding:0 !important;
+
+    overflow:visible !important;
+  }
+
+  #board.board .card,
+  .board .card,
+  .game-card,
+  .memory-card{
+    margin:0 !important;
+  }
+}
+
+/* iPhone menor */
+@media (max-width: 420px){
+
+  #board.board,
+  .board,
+  .game-board,
+  .cards-grid,
+  .memory-grid,
+  #cardsGrid,
+  #gameBoard{
+    gap:8px !important;
+    row-gap:8px !important;
+    column-gap:8px !important;
+  }
+}
