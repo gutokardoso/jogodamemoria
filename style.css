@@ -1830,7 +1830,11 @@ body > .game-logo-wrapper{
 }
 
 
-/* FIX REAL DO TOPO DO HUD NO DESKTOP */
+
+}
+
+
+/* DESKTOP COM MESMO MARGIN-TOP DO MOBILE <=768PX */
 
 @media (min-width: 901px){
 
@@ -1838,7 +1842,6 @@ body > .game-logo-wrapper{
   .top-bar,
   .game-header,
   .scoreboard{
-    position:relative !important;
-    top:-14px !important;
+    margin-top:0 !important;
   }
 }
