@@ -516,3 +516,239 @@ main{
     max-height:99px !important;
   }
 }
+
+
+/* AJUSTE DEFINITIVO DO TABULEIRO
+   - reduz altura total do conjunto
+   - mantém proporção fixa das cartas
+   - row-gap igual ao column-gap
+   - impede que as cartas invadam HUD/título
+   - centraliza o conjunto das 16 cartas
+*/
+
+.cards-grid,
+.game-board,
+.board,
+.memory-grid,
+#cardsGrid,
+#gameBoard{
+  display:grid !important;
+  grid-template-columns:repeat(4, auto) !important;
+  justify-content:center !important;
+  align-content:center !important;
+  justify-items:center !important;
+  align-items:center !important;
+
+  gap:8px !important;
+  row-gap:8px !important;
+  column-gap:8px !important;
+
+  width:100% !important;
+  max-width:620px !important;
+  height:auto !important;
+  max-height:calc(100dvh - 185px) !important;
+
+  margin:8px auto 0 !important;
+  padding:0 18px 22px !important;
+
+  overflow:visible !important;
+  box-sizing:border-box !important;
+}
+
+.game-card,
+.card,
+.memory-card{
+  width:96px !important;
+  height:144px !important;
+
+  min-width:96px !important;
+  min-height:144px !important;
+
+  max-width:96px !important;
+  max-height:144px !important;
+
+  aspect-ratio:2 / 3 !important;
+  flex:none !important;
+}
+
+.card-inner,
+.card-front,
+.card-back{
+  width:100% !important;
+  height:100% !important;
+  aspect-ratio:2 / 3 !important;
+}
+
+.card img,
+.game-card img,
+.memory-card img,
+.card-front img,
+.card-back img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+}
+
+/* Desktop com pouca altura */
+@media (max-height: 850px){
+  .cards-grid,
+  .game-board,
+  .board,
+  .memory-grid,
+  #cardsGrid,
+  #gameBoard{
+    gap:6px !important;
+    row-gap:6px !important;
+    column-gap:6px !important;
+    max-height:calc(100dvh - 170px) !important;
+    margin-top:2px !important;
+    padding-bottom:14px !important;
+  }
+
+  .game-card,
+  .card,
+  .memory-card{
+    width:84px !important;
+    height:126px !important;
+
+    min-width:84px !important;
+    min-height:126px !important;
+
+    max-width:84px !important;
+    max-height:126px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px){
+
+  html,
+  body{
+    overflow:hidden !important;
+    height:100dvh !important;
+    max-height:100dvh !important;
+  }
+
+  .hud,
+  .top-bar,
+  .game-header,
+  .scoreboard{
+    transform:scale(.66) !important;
+    transform-origin:top center !important;
+    margin-top:0 !important;
+    margin-bottom:-14px !important;
+  }
+
+  .cards-grid,
+  .game-board,
+  .board,
+  .memory-grid,
+  #cardsGrid,
+  #gameBoard{
+    grid-template-columns:repeat(4, auto) !important;
+
+    gap:5px !important;
+    row-gap:5px !important;
+    column-gap:5px !important;
+
+    width:100% !important;
+    max-width:360px !important;
+    max-height:calc(100dvh - 105px) !important;
+
+    margin:0 auto !important;
+    padding:8px 16px max(18px, env(safe-area-inset-bottom)) !important;
+  }
+
+  .game-card,
+  .card,
+  .memory-card{
+    width:66px !important;
+    height:99px !important;
+
+    min-width:66px !important;
+    min-height:99px !important;
+
+    max-width:66px !important;
+    max-height:99px !important;
+  }
+}
+
+/* Mobile menor */
+@media (max-width: 420px){
+
+  .hud,
+  .top-bar,
+  .game-header,
+  .scoreboard{
+    transform:scale(.58) !important;
+    margin-bottom:-18px !important;
+  }
+
+  .cards-grid,
+  .game-board,
+  .board,
+  .memory-grid,
+  #cardsGrid,
+  #gameBoard{
+    gap:4px !important;
+    row-gap:4px !important;
+    column-gap:4px !important;
+
+    max-width:315px !important;
+    max-height:calc(100dvh - 92px) !important;
+
+    padding:6px 14px max(18px, env(safe-area-inset-bottom)) !important;
+  }
+
+  .game-card,
+  .card,
+  .memory-card{
+    width:58px !important;
+    height:87px !important;
+
+    min-width:58px !important;
+    min-height:87px !important;
+
+    max-width:58px !important;
+    max-height:87px !important;
+  }
+}
+
+/* Celulares baixos */
+@media (max-height: 720px) and (max-width: 768px){
+
+  .hud,
+  .top-bar,
+  .game-header,
+  .scoreboard{
+    transform:scale(.52) !important;
+    margin-bottom:-22px !important;
+  }
+
+  .cards-grid,
+  .game-board,
+  .board,
+  .memory-grid,
+  #cardsGrid,
+  #gameBoard{
+    gap:3px !important;
+    row-gap:3px !important;
+    column-gap:3px !important;
+    max-height:calc(100dvh - 76px) !important;
+    padding-top:2px !important;
+    padding-bottom:12px !important;
+  }
+
+  .game-card,
+  .card,
+  .memory-card{
+    width:52px !important;
+    height:78px !important;
+
+    min-width:52px !important;
+    min-height:78px !important;
+
+    max-width:52px !important;
+    max-height:78px !important;
+  }
+}
