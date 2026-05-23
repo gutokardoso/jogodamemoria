@@ -802,3 +802,58 @@ main{
     width:min(38vw, 180px);
   }
 }
+
+
+/* Remove título textual antigo */
+h1,
+.game-title,
+.title,
+.logo-title{
+  display:none !important;
+}
+
+/* Logo central da HUD */
+.game-logo-wrapper{
+  position:fixed !important;
+  top:10px !important;
+  left:50% !important;
+  transform:translateX(-50%) !important;
+  z-index:50 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:auto !important;
+  pointer-events:none !important;
+}
+
+.game-logo{
+  width:min(22vw, 300px) !important;
+  height:auto !important;
+  object-fit:contain !important;
+  display:block !important;
+}
+
+/* Tablet */
+@media (max-width: 900px){
+  .game-logo{
+    width:min(24vw, 240px) !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px){
+  .game-logo-wrapper{
+    top:6px !important;
+  }
+
+  .game-logo{
+    width:min(32vw, 170px) !important;
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 420px){
+  .game-logo{
+    width:min(36vw, 145px) !important;
+  }
+}
