@@ -330,3 +330,189 @@ main{
     max-width:68px !important;
   }
 }
+
+
+/* AJUSTE FINAL PREMIUM MOBILE + DESKTOP
+   - cartas com proporção fixa real
+   - mesmas proporções em todas as telas
+   - tabuleiro centralizado
+   - respiro nas bordas
+   - sem corte
+*/
+
+.cards-grid,
+.game-board,
+.board,
+.memory-grid,
+#cardsGrid,
+#gameBoard{
+  display:grid !important;
+  grid-template-columns:repeat(4, auto) !important;
+  justify-content:center !important;
+  align-content:center !important;
+  justify-items:center !important;
+  align-items:center !important;
+
+  gap:10px !important;
+
+  width:100% !important;
+  max-width:760px !important;
+
+  margin:auto !important;
+
+  padding:24px 24px 36px !important;
+
+  box-sizing:border-box !important;
+}
+
+.game-card,
+.card,
+.memory-card{
+  width:120px !important;
+  height:180px !important;
+
+  min-width:120px !important;
+  min-height:180px !important;
+
+  max-width:120px !important;
+  max-height:180px !important;
+
+  aspect-ratio:2 / 3 !important;
+
+  flex:none !important;
+}
+
+.card-inner,
+.card-front,
+.card-back{
+  width:100% !important;
+  height:100% !important;
+}
+
+.card img,
+.game-card img,
+.memory-card img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+}
+
+/* TABLETS */
+@media (max-width: 900px){
+
+  .cards-grid,
+  .game-board,
+  .board,
+  .memory-grid,
+  #cardsGrid,
+  #gameBoard{
+    gap:8px !important;
+    padding:18px 18px 28px !important;
+    max-width:620px !important;
+  }
+
+  .game-card,
+  .card,
+  .memory-card{
+    width:98px !important;
+    height:147px !important;
+
+    min-width:98px !important;
+    min-height:147px !important;
+
+    max-width:98px !important;
+    max-height:147px !important;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+
+  html,
+  body{
+    overflow:hidden !important;
+    height:100dvh !important;
+  }
+
+  .hud,
+  .top-bar,
+  .game-header,
+  .scoreboard{
+    transform:scale(.72) !important;
+    transform-origin:top center !important;
+    margin-bottom:-6px !important;
+  }
+
+  .cards-grid,
+  .game-board,
+  .board,
+  .memory-grid,
+  #cardsGrid,
+  #gameBoard{
+    gap:6px !important;
+
+    width:100% !important;
+    max-width:420px !important;
+
+    padding:
+      max(12px, env(safe-area-inset-top))
+      18px
+      max(24px, env(safe-area-inset-bottom))
+      18px !important;
+
+    margin:auto !important;
+  }
+
+  .game-card,
+  .card,
+  .memory-card{
+    width:74px !important;
+    height:111px !important;
+
+    min-width:74px !important;
+    min-height:111px !important;
+
+    max-width:74px !important;
+    max-height:111px !important;
+  }
+}
+
+/* MOBILE PEQUENO */
+@media (max-width: 420px){
+
+  .hud,
+  .top-bar,
+  .game-header,
+  .scoreboard{
+    transform:scale(.62) !important;
+    margin-bottom:-10px !important;
+  }
+
+  .cards-grid,
+  .game-board,
+  .board,
+  .memory-grid,
+  #cardsGrid,
+  #gameBoard{
+    gap:5px !important;
+
+    padding:
+      max(10px, env(safe-area-inset-top))
+      14px
+      max(20px, env(safe-area-inset-bottom))
+      14px !important;
+  }
+
+  .game-card,
+  .card,
+  .memory-card{
+    width:66px !important;
+    height:99px !important;
+
+    min-width:66px !important;
+    min-height:99px !important;
+
+    max-width:66px !important;
+    max-height:99px !important;
+  }
+}
