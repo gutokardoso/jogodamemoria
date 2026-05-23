@@ -1088,3 +1088,86 @@ body > .game-logo-wrapper,
     min-width: 140px !important;
   }
 }
+
+
+/* FIX DEFINITIVO DA LOGO NA TELA DAS CARTAS
+   A logo fica no fluxo do layout: abaixo da HUD e acima do tabuleiro.
+   Não aparece na tela inicial.
+*/
+.start-screen .game-logo-wrapper,
+body > .game-logo-wrapper{
+  display:none !important;
+}
+
+.game-screen .game-logo-wrapper.game-logo-in-game{
+  position:relative !important;
+  inset:auto !important;
+  top:auto !important;
+  left:auto !important;
+  right:auto !important;
+  bottom:auto !important;
+  transform:none !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  width:100% !important;
+  max-width:100% !important;
+  height:auto !important;
+
+  margin:10px auto 14px auto !important;
+  padding:0 !important;
+
+  z-index:60 !important;
+  pointer-events:none !important;
+  opacity:1 !important;
+  visibility:visible !important;
+}
+
+.game-screen .game-logo-wrapper.game-logo-in-game .game-logo{
+  display:block !important;
+  width:min(24vw, 280px) !important;
+  max-width:280px !important;
+  min-width:150px !important;
+  height:auto !important;
+  object-fit:contain !important;
+  opacity:1 !important;
+  visibility:visible !important;
+}
+
+/* O tabuleiro começa depois da marca */
+.game-screen .board,
+.game-screen #board,
+.game-screen .cards-grid,
+.game-screen .game-board,
+.game-screen .memory-grid,
+.game-screen #cardsGrid,
+.game-screen #gameBoard{
+  margin-top:0 !important;
+}
+
+/* Mobile: marca centralizada no espaço entre HUD e cartas */
+@media (max-width:768px){
+  .game-screen .game-logo-wrapper.game-logo-in-game{
+    margin:12px auto 16px auto !important;
+  }
+
+  .game-screen .game-logo-wrapper.game-logo-in-game .game-logo{
+    width:min(48vw, 210px) !important;
+    max-width:210px !important;
+    min-width:140px !important;
+  }
+}
+
+@media (max-width:420px){
+  .game-screen .game-logo-wrapper.game-logo-in-game{
+    margin:10px auto 14px auto !important;
+  }
+
+  .game-screen .game-logo-wrapper.game-logo-in-game .game-logo{
+    width:min(52vw, 190px) !important;
+    max-width:190px !important;
+    min-width:130px !important;
+  }
+}
