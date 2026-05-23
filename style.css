@@ -1171,3 +1171,85 @@ body > .game-logo-wrapper{
     min-width:130px !important;
   }
 }
+
+
+/* FIX DEFINITIVO DA CARTA NO MOBILE/DESKTOP
+   A imagem da carta ocupa 100% da caixinha, sem ficar espremida.
+*/
+.card,
+.game-card,
+.memory-card{
+  overflow:hidden !important;
+  border-radius:14px !important;
+  background:transparent !important;
+}
+
+.card-inner,
+.card-front,
+.card-back,
+.card-face,
+.front,
+.back{
+  width:100% !important;
+  height:100% !important;
+  overflow:hidden !important;
+  border-radius:14px !important;
+}
+
+.card img,
+.game-card img,
+.memory-card img,
+.card-inner img,
+.card-front img,
+.card-back img,
+.card-face img,
+.front img,
+.back img{
+  width:100% !important;
+  height:100% !important;
+  max-width:100% !important;
+  max-height:100% !important;
+  min-width:100% !important;
+  min-height:100% !important;
+  object-fit:fill !important;
+  object-position:center center !important;
+  display:block !important;
+}
+
+/* Remove qualquer padding interno que cria borda branca e faz a carta parecer fina */
+.card,
+.game-card,
+.memory-card,
+.card-inner,
+.card-front,
+.card-back,
+.card-face,
+.front,
+.back{
+  padding:0 !important;
+  box-sizing:border-box !important;
+}
+
+/* Mantém o mesmo formato da carta em qualquer tela */
+.card,
+.game-card,
+.memory-card{
+  aspect-ratio:2 / 3 !important;
+}
+
+@media (max-width:768px){
+  .card,
+  .game-card,
+  .memory-card{
+    border-radius:12px !important;
+  }
+
+  .card-inner,
+  .card-front,
+  .card-back,
+  .card-face,
+  .front,
+  .back{
+    border-radius:12px !important;
+  }
+}
