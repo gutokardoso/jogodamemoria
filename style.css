@@ -752,3 +752,53 @@ main{
     max-height:78px !important;
   }
 }
+
+
+/* Logo premium do jogo na HUD */
+.game-logo-wrapper{
+  position:absolute;
+  top:10px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:30;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+}
+
+.game-logo{
+  width:min(26vw, 360px);
+  height:auto;
+  object-fit:contain;
+  display:block;
+}
+
+/* Tablet */
+@media (max-width: 900px){
+  .game-logo{
+    width:min(28vw, 280px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px){
+  .game-logo-wrapper{
+    top:8px;
+  }
+
+  .game-logo{
+    width:min(34vw, 220px);
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 420px){
+  .game-logo-wrapper{
+    top:6px;
+  }
+
+  .game-logo{
+    width:min(38vw, 180px);
+  }
+}
