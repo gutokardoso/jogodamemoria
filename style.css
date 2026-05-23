@@ -1394,3 +1394,126 @@ body > .game-logo-wrapper{
 .card-back{
   display:block !important;
 }
+
+
+/* CORREÇÃO DEFINITIVA DO FLIP
+   O problema era o giro aplicado no .card-inner junto com z-index nas faces.
+   Em alguns navegadores/mobile, o verso continuava por cima da frente.
+   Agora cada face gira individualmente, mantendo o PNG da carta na proporção correta.
+*/
+
+.card,
+.game-card,
+.memory-card{
+  position:relative !important;
+  width:clamp(64px, 18vw, 120px) !important;
+  height:auto !important;
+  aspect-ratio:168 / 215 !important;
+  perspective:1200px !important;
+  background:transparent !important;
+  border:0 !important;
+  padding:0 !important;
+  overflow:visible !important;
+}
+
+.card-inner{
+  position:relative !important;
+  width:100% !important;
+  height:100% !important;
+  transform:none !important;
+  transition:none !important;
+  transform-style:preserve-3d !important;
+}
+
+.card.flipped .card-inner,
+.game-card.flipped .card-inner,
+.memory-card.flipped .card-inner{
+  transform:none !important;
+}
+
+.card-face,
+.card-front,
+.card-back{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  aspect-ratio:168 / 215 !important;
+  border-radius:14px !important;
+  overflow:hidden !important;
+  backface-visibility:hidden !important;
+  -webkit-backface-visibility:hidden !important;
+  background-size:100% 100% !important;
+  background-position:center !important;
+  background-repeat:no-repeat !important;
+  transition:transform .55s cubic-bezier(.2,.8,.2,1) !important;
+  z-index:auto !important;
+}
+
+/* Carta fechada: mostra o verso premium */
+.card-back{
+  background-image:url("assets/card-back.png") !important;
+  transform:rotateY(0deg) !important;
+}
+
+/* Carta aberta: mostra a frente com o ícone do par */
+.card-front{
+  background-image:url("assets/card-front.png") !important;
+  transform:rotateY(-180deg) !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  font-size:clamp(30px, 5vw, 58px) !important;
+  line-height:1 !important;
+  color:#101010 !important;
+  text-shadow:0 2px 4px rgba(0,0,0,.25) !important;
+}
+
+/* Estado virado */
+.card.flipped .card-back,
+.game-card.flipped .card-back,
+.memory-card.flipped .card-back{
+  transform:rotateY(180deg) !important;
+}
+
+.card.flipped .card-front,
+.game-card.flipped .card-front,
+.memory-card.flipped .card-front{
+  transform:rotateY(0deg) !important;
+}
+
+.card-front img,
+.card-back img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  display:block !important;
+}
+
+@media (max-width:768px){
+  .card,
+  .game-card,
+  .memory-card{
+    width:clamp(62px, 19vw, 88px) !important;
+    aspect-ratio:168 / 215 !important;
+  }
+
+  .card-face,
+  .card-front,
+  .card-back{
+    border-radius:12px !important;
+  }
+
+  .card-front{
+    font-size:clamp(26px, 7vw, 42px) !important;
+  }
+}
+
+@media (max-width:420px){
+  .card,
+  .game-card,
+  .memory-card{
+    width:clamp(58px, 20vw, 78px) !important;
+    aspect-ratio:168 / 215 !important;
+  }
+}
