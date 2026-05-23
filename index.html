@@ -47,15 +47,37 @@
       <section id="board" class="board" aria-label="Cartas do jogo"></section>
     </section>
 
+
     <section id="resultScreen" class="screen result-screen" aria-label="Resultado">
-      <div class="result-card">
-        <h1 id="resultTitle">PARABÉNS!</h1>
-        <p id="resultText">VOCÊ VENCEU!</p>
-        <div class="final-score">PONTUAÇÃO FINAL <strong id="finalScore">0000</strong></div>
-        <button id="playAgain">JOGAR NOVAMENTE</button>
-        <button id="menuButton">MENU INICIAL</button>
+      <div class="victory-scene">
+        <h1 id="resultTitle" class="victory-title">PARABÉNS!</h1>
+        <p id="resultText" class="victory-subtitle">VOCÊ VENCEU!</p>
+
+        <img class="victory-trophy" src="assets/result-trophy.png" alt="" aria-hidden="true">
+
+        <div class="victory-stats">
+          <img src="assets/result-panel-clean.png" class="victory-panel-img" alt="" aria-hidden="true">
+          <div class="victory-stat victory-time">
+            <span>TEMPO RESTANTE</span>
+            <strong id="finalTime">0</strong>
+          </div>
+          <div class="victory-stat victory-score">
+            <span>PONTUAÇÃO FINAL</span>
+            <strong id="finalScore">0000</strong>
+          </div>
+        </div>
+
+        <div class="victory-actions">
+          <button id="playAgain" class="victory-button victory-restart" aria-label="Jogar novamente">
+            <img src="assets/result-btn-restart.png" alt="Jogar novamente">
+          </button>
+          <button id="menuButton" class="victory-button victory-menu" aria-label="Menu inicial">
+            <img src="assets/result-btn-menu.png" alt="Menu inicial">
+          </button>
+        </div>
       </div>
     </section>
+
   </main>
   <script src="script.js"></script>
 </body>

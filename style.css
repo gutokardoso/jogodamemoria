@@ -2498,3 +2498,210 @@ body > .game-logo-wrapper{
     max-height:74px !important;
   }
 }
+
+
+/* ==========================================================
+   TELA FINAL — IDENTIDADE PREMIUM DE VITÓRIA
+   ========================================================== */
+.result-screen{
+  background:#020914 url('assets/result-victory-reference.png') center/cover no-repeat !important;
+  overflow:hidden !important;
+}
+
+.result-screen::before{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  background:radial-gradient(circle at center, rgba(255,184,0,.10), rgba(0,5,15,.18) 44%, rgba(0,0,0,.48) 100%) !important;
+  pointer-events:none !important;
+}
+
+.victory-scene{
+  position:relative !important;
+  z-index:5 !important;
+  width:100% !important;
+  height:100% !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  padding-top:48px !important;
+  box-sizing:border-box !important;
+  font-family:Georgia,'Times New Roman',serif !important;
+  text-align:center !important;
+}
+
+.victory-title{
+  margin:0 !important;
+  padding:0 !important;
+  font-size:clamp(64px, 6.4vw, 118px) !important;
+  line-height:.95 !important;
+  color:#f7c64a !important;
+  letter-spacing:.03em !important;
+  text-transform:uppercase !important;
+  text-shadow:0 4px 0 #6c3300, 0 0 28px rgba(255,196,46,.75) !important;
+}
+
+.victory-subtitle{
+  margin:0 !important;
+  padding:0 !important;
+  font-size:clamp(38px, 4vw, 72px) !important;
+  line-height:1 !important;
+  color:#ffd86a !important;
+  text-transform:uppercase !important;
+  text-shadow:0 3px 0 #5e2d00, 0 0 20px rgba(255,196,46,.7) !important;
+  font-weight:900 !important;
+}
+
+.victory-trophy{
+  width:min(28vw, 410px) !important;
+  height:auto !important;
+  margin-top:4px !important;
+  margin-bottom:-4px !important;
+  object-fit:contain !important;
+  filter:drop-shadow(0 0 18px rgba(255,188,35,.85)) !important;
+}
+
+.victory-stats{
+  position:relative !important;
+  width:min(58vw, 948px) !important;
+  aspect-ratio:948/160 !important;
+  margin:0 auto 30px !important;
+}
+
+.victory-panel-img{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+  display:block !important;
+}
+
+.victory-stat{
+  position:absolute !important;
+  top:22% !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  font-family:Arial, sans-serif !important;
+  text-transform:uppercase !important;
+  color:#fff1aa !important;
+  text-shadow:0 0 12px rgba(255,210,85,.7) !important;
+}
+
+.victory-stat span{
+  font-size:clamp(13px,1.35vw,24px) !important;
+  font-weight:900 !important;
+  letter-spacing:.04em !important;
+  color:#ffe46b !important;
+  margin-bottom:2px !important;
+}
+
+.victory-stat strong{
+  font-size:clamp(34px,4vw,70px) !important;
+  line-height:1 !important;
+  font-weight:900 !important;
+  color:#fff2b0 !important;
+}
+
+.victory-time{
+  left:18% !important;
+}
+
+.victory-score{
+  right:13% !important;
+}
+
+.victory-actions{
+  display:flex !important;
+  gap:44px !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+
+.victory-button{
+  background:transparent !important;
+  border:0 !important;
+  padding:0 !important;
+  margin:0 !important;
+  cursor:pointer !important;
+  width:auto !important;
+  height:auto !important;
+  box-shadow:none !important;
+}
+
+.victory-button img{
+  display:block !important;
+  height:82px !important;
+  width:auto !important;
+  object-fit:contain !important;
+  filter:drop-shadow(0 0 10px rgba(255,190,38,.55)) !important;
+}
+
+.victory-button:hover img{
+  transform:translateY(-1px) scale(1.01) !important;
+}
+
+.result-card{
+  display:none !important;
+}
+
+@media(max-width:900px){
+  .victory-scene{
+    padding-top:40px !important;
+  }
+  .victory-title{
+    font-size:clamp(44px, 10vw, 78px) !important;
+  }
+  .victory-subtitle{
+    font-size:clamp(30px, 7vw, 52px) !important;
+  }
+  .victory-trophy{
+    width:min(48vw, 330px) !important;
+  }
+  .victory-stats{
+    width:min(88vw, 720px) !important;
+    margin-bottom:22px !important;
+  }
+  .victory-actions{
+    gap:18px !important;
+  }
+  .victory-button img{
+    height:62px !important;
+  }
+}
+
+@media(max-width:520px){
+  .victory-scene{
+    padding-top:34px !important;
+  }
+  .victory-title{
+    font-size:42px !important;
+  }
+  .victory-subtitle{
+    font-size:28px !important;
+  }
+  .victory-trophy{
+    width:62vw !important;
+    margin-top:8px !important;
+  }
+  .victory-stats{
+    width:96vw !important;
+    margin-bottom:18px !important;
+  }
+  .victory-stat span{
+    font-size:10px !important;
+  }
+  .victory-stat strong{
+    font-size:28px !important;
+  }
+  .victory-actions{
+    flex-direction:column !important;
+    gap:10px !important;
+  }
+  .victory-button img{
+    height:54px !important;
+  }
+}
