@@ -54,5 +54,28 @@ function startGame(){reset();show(gameScreen);const cards=[...document.querySele
 function tick(){updateTimerRing();timerId=setInterval(()=>{time--;timerEl.textContent=time;updateTimerRing();if(time<=10)timerEl.style.color='#ffd24d';if(time<=0){end(false)}},1000)}
 function flip(card){if(!canPlay||lock||card.classList.contains('flipped')||card.classList.contains('matched'))return;card.classList.add('flipped');flipped.push(card);if(flipped.length===2)check()}
 function check(){lock=true;const [a,b]=flipped;if(a.dataset.icon===b.dataset.icon){a.classList.add('correct');b.classList.add('correct');const points=getMatchPoints();score+=points;pairs++;if(scoreEl) scoreEl.textContent=fmt(score);pairsEl.textContent=pairs+'/8';setTimeout(()=>{a.classList.add('matched');b.classList.add('matched');flipped=[];lock=false;if(pairs===8){const bonus=getFinishBonus();score+=bonus;if(scoreEl) scoreEl.textContent=fmt(score);end(true)}},650)}else{a.classList.add('wrong');b.classList.add('wrong');setTimeout(()=>{a.classList.remove('flipped','wrong');b.classList.remove('flipped','wrong');flipped=[];lock=false},850)}}
-function end(win){clearInterval(timerId);canPlay=false;finalScore.textContent=fmt(score);if(finalTime) finalTime.textContent=Math.max(0,time);if(win){resultTitle.textContent='PARABÉNS!';resultText.textContent='VOCÊ VENCEU!'}else{resultTitle.textContent='TEMPO ESGOTADO!';resultText.textContent='TENTE NOVAMENTE!'}show(resultScreen)}
+function end(win){
+clearInterval(timerId);
+canPlay=false;
+finalScore.textContent=fmt(score);
+if(finalTime) finalTime.textContent=Math.max(0,time);
+
+const resultScreenEl = document.getElementById('resultScreen');
+
+if(win){
+resultTitle.textContent='PARABÉNS!';
+resultText.textContent='VOCÊ VENCEU!';
+if(resultScreenEl){
+resultScreenEl.style.backgroundImage="url('./assets/result-victory-reference.png')";
+}
+}else{
+resultTitle.textContent='TENTE NOVAMENTE!';
+resultText.textContent='VOCÊ PERDEU!';
+if(resultScreenEl){
+resultScreenEl.style.backgroundImage="url('./assets/result-lost-reference.jpg')";
+}
+}
+
+show(resultScreen)
+}
 document.getElementById('startButton').onclick=startGame;document.getElementById('homeButton').onclick=()=>show(startScreen);document.getElementById('playAgain').onclick=startGame;document.getElementById('menuButton').onclick=()=>show(startScreen);
