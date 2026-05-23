@@ -1963,3 +1963,19 @@ body > .game-logo-wrapper{
     max-width: 190px !important;
   }
 }
+
+
+/* MOBILE — ESPAÇAMENTO UNIFORME ENTRE CARTAS */
+@media (max-width:768px){
+
+  .game-board,
+  #board{
+    gap:10px !important;
+    row-gap:10px !important;
+    column-gap:10px !important;
+  }
+
+  .memory-card{
+    margin:0 !important;
+  }
+}
