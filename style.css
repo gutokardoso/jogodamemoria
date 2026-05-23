@@ -203,3 +203,130 @@ main{
     width:min(100%, calc((100vh - 180px) / 4 * 0.66)) !important;
   }
 }
+
+
+/* MOBILE FIX DEFINITIVO: 16 cartas sempre dentro da tela, sem corte e sem scroll */
+@media (max-width: 768px){
+
+  html,
+  body{
+    width:100% !important;
+    height:100dvh !important;
+    max-height:100dvh !important;
+    overflow:hidden !important;
+  }
+
+  .game-screen,
+  #game-screen,
+  .screen-game,
+  .game-area,
+  .game-container,
+  main{
+    height:100dvh !important;
+    max-height:100dvh !important;
+    overflow:hidden !important;
+    padding-top:env(safe-area-inset-top) !important;
+    padding-bottom:env(safe-area-inset-bottom) !important;
+  }
+
+  .hud,
+  .top-bar,
+  .game-header,
+  .scoreboard{
+    transform:scale(.72) !important;
+    transform-origin:top center !important;
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+  }
+
+  .cards-grid,
+  .game-board,
+  .board,
+  .memory-grid,
+  #cardsGrid,
+  #gameBoard{
+    width:min(92vw, 420px) !important;
+    max-height:calc(100dvh - 105px) !important;
+    display:grid !important;
+    grid-template-columns:repeat(4, 1fr) !important;
+    gap:4px !important;
+    margin:0 auto !important;
+    padding:0 !important;
+    justify-items:center !important;
+    align-items:center !important;
+    overflow:visible !important;
+  }
+
+  .game-card,
+  .card,
+  .memory-card{
+    width:min(calc((92vw - 12px) / 4), calc((100dvh - 125px) / 4 * .64)) !important;
+    max-width:88px !important;
+    min-width:44px !important;
+    height:auto !important;
+    aspect-ratio:2 / 3 !important;
+    flex:0 0 auto !important;
+  }
+
+  .card-inner,
+  .card-front,
+  .card-back{
+    width:100% !important;
+    height:100% !important;
+    aspect-ratio:2 / 3 !important;
+  }
+}
+
+@media (max-width: 420px){
+  .hud,
+  .top-bar,
+  .game-header,
+  .scoreboard{
+    transform:scale(.62) !important;
+  }
+
+  .cards-grid,
+  .game-board,
+  .board,
+  .memory-grid,
+  #cardsGrid,
+  #gameBoard{
+    width:90vw !important;
+    max-height:calc(100dvh - 90px) !important;
+    gap:3px !important;
+  }
+
+  .game-card,
+  .card,
+  .memory-card{
+    width:min(calc((90vw - 9px) / 4), calc((100dvh - 105px) / 4 * .64)) !important;
+    max-width:78px !important;
+  }
+}
+
+@media (max-height: 680px) and (max-width: 768px){
+  .hud,
+  .top-bar,
+  .game-header,
+  .scoreboard{
+    transform:scale(.54) !important;
+    margin-bottom:-6px !important;
+  }
+
+  .cards-grid,
+  .game-board,
+  .board,
+  .memory-grid,
+  #cardsGrid,
+  #gameBoard{
+    max-height:calc(100dvh - 72px) !important;
+    gap:2px !important;
+  }
+
+  .game-card,
+  .card,
+  .memory-card{
+    width:min(calc((90vw - 6px) / 4), calc((100dvh - 82px) / 4 * .64)) !important;
+    max-width:68px !important;
+  }
+}
