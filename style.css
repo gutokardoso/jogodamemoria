@@ -2911,3 +2911,27 @@ body > .game-logo-wrapper{
 .result-screen.result-win .victory-text-hidden{
   display:none !important;
 }
+
+
+/* DERROTA — USAR IMAGEM TEMPO ESGOTADO COM O MESMO FORMATO DE PARABENS */
+.result-lose-image{
+  display:none !important;
+}
+
+.result-screen.result-lose .result-lose-image{
+  display:block !important;
+}
+
+.result-screen.result-lose #resultTextImage{
+  display:none !important;
+}
+
+.result-screen.result-lose .victory-title,
+.result-screen.result-lose .victory-subtitle,
+.result-screen.result-lose .victory-text-hidden{
+  display:none !important;
+}
+
+.result-screen.result-win .result-lose-image{
+  display:none !important;
+}

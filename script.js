@@ -15,6 +15,7 @@ const finalTime=document.getElementById('finalTime');
 const resultTitle=document.getElementById('resultTitle');
 const resultText=document.getElementById('resultText');
 const resultTextImage=document.getElementById('resultTextImage');
+const resultLoseImage=document.getElementById('resultLoseImage');
 const icons=['💎','🚀','👑','⚽','🦋','⭐','⚡','🏆'];
 let deck=[],flipped=[],lock=false,score=0,pairs=0,time=TIMER_TOTAL,timerId=null,canPlay=false,lastMatchTime=TIMER_TOTAL;
 const BASE_MATCH_POINTS=100;
@@ -76,6 +77,9 @@ if(win){
     resultTextImage.alt='Parabéns! Você venceu!';
     resultTextImage.style.display='block';
   }
+  if(resultLoseImage){
+    resultLoseImage.style.display='none';
+  }
   if(resultScreenEl){
     resultScreenEl.classList.add('result-win');
     resultScreenEl.style.setProperty('background-image',"url('./assets/result-victory-reference.png')",'important');
@@ -84,10 +88,15 @@ if(win){
     resultScreenEl.style.setProperty('background-repeat','no-repeat','important');
   }
 }else{
-  resultTitle.textContent='TEMPO ESGOTADO!';
-  resultText.textContent='TENTE NOVAMENTE!';
+  resultTitle.textContent='';
+  resultText.textContent='';
   if(resultTextImage){
     resultTextImage.style.display='none';
+  }
+  if(resultLoseImage){
+    resultLoseImage.src='assets/tempo_esgotado.png';
+    resultLoseImage.alt='Tempo esgotado! Tente novamente!';
+    resultLoseImage.style.display='block';
   }
   if(resultScreenEl){
     resultScreenEl.classList.add('result-lose');
