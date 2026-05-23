@@ -2868,3 +2868,25 @@ body > .game-logo-wrapper{
     object-fit:contain !important;
   }
 }
+
+
+/* TESTADO — PARABENS AINDA MAIOR ABAIXO DE 900PX */
+@media (max-width:900px){
+  .victory-result-image{
+    width:min(96vw, 760px) !important;
+    max-width:760px !important;
+    max-height:40vh !important;
+    height:auto !important;
+    object-fit:contain !important;
+  }
+}
+
+@media (max-width:520px){
+  .victory-result-image{
+    width:96vw !important;
+    max-width:96vw !important;
+    max-height:38vh !important;
+    height:auto !important;
+    object-fit:contain !important;
+  }
+}
