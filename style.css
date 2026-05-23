@@ -21,3 +21,32 @@ object-fit:cover;
   z-index: -1 !important;
   pointer-events: none !important;
 }
+
+
+/* Correção do botão da tela inicial - sem corte */
+.start-button{
+  overflow: visible !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.start-button:hover{
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.start-button img,
+.start-button-image,
+.start-button > img{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  display: block !important;
+  max-width: none !important;
+  max-height: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
