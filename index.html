@@ -19,8 +19,13 @@
     <section id="gameScreen" class="screen game-screen" aria-label="Tela do jogo">
       <header class="hud">
         <div class="panel timer-panel">
-          <div class="panel-icon">◷</div>
-<div><span>TEMPO</span><strong id="timer">45s</strong></div>
+          <div class="timer-ring" aria-label="Cronômetro">
+            <svg class="timer-svg" viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="timer-track" cx="60" cy="60" r="52"></circle>
+              <circle id="timerProgress" class="timer-progress" cx="60" cy="60" r="52"></circle>
+            </svg>
+            <strong id="timer">45s</strong>
+          </div>
         </div>
 
         

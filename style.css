@@ -1517,3 +1517,92 @@ body > .game-logo-wrapper{
     aspect-ratio:168 / 215 !important;
   }
 }
+
+
+/* TIMER CIRCULAR DOURADO */
+.timer-panel{
+  min-width:unset !important;
+  width:auto !important;
+  padding:10px 18px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+
+.timer-panel .panel-icon,
+.timer-panel span{
+  display:none !important;
+}
+
+.timer-ring{
+  position:relative !important;
+  width:92px !important;
+  height:92px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+
+.timer-svg{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  transform:rotate(-90deg) !important;
+  overflow:visible !important;
+}
+
+.timer-track{
+  fill:none !important;
+  stroke:rgba(244,198,75,.22) !important;
+  stroke-width:8 !important;
+}
+
+.timer-progress{
+  fill:none !important;
+  stroke:#f4c64b !important;
+  stroke-width:8 !important;
+  stroke-linecap:round !important;
+  filter:drop-shadow(0 0 8px rgba(244,198,75,.85)) !important;
+  transition:stroke-dashoffset 1s linear !important;
+}
+
+.timer-ring #timer{
+  position:relative !important;
+  z-index:2 !important;
+  font-size:34px !important;
+  line-height:1 !important;
+  color:#fff5bd !important;
+  text-shadow:0 0 10px rgba(244,198,75,.8) !important;
+}
+
+@media (max-width:768px){
+  .timer-panel{
+    padding:7px 11px !important;
+  }
+
+  .timer-ring{
+    width:66px !important;
+    height:66px !important;
+  }
+
+  .timer-track,
+  .timer-progress{
+    stroke-width:7 !important;
+  }
+
+  .timer-ring #timer{
+    font-size:23px !important;
+  }
+}
+
+@media (max-width:420px){
+  .timer-ring{
+    width:58px !important;
+    height:58px !important;
+  }
+
+  .timer-ring #timer{
+    font-size:20px !important;
+  }
+}
