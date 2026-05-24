@@ -2990,3 +2990,96 @@ body > .game-logo-wrapper{
     font-size:54px !important;
   }
 }
+
+
+/* TESTADO — HUD ALINHADO COM AS LATERAIS DA GRADE
+   Timer alinhado à esquerda das cartas e Home alinhado à direita das cartas.
+*/
+#gameScreen > header.hud{
+  width:398px !important; /* 4 cartas de 92px + 3 gaps de 10px */
+  max-width:calc(100vw - 24px) !important;
+  margin:0 auto !important;
+  padding:12px 0 0 !important;
+  display:flex !important;
+  align-items:flex-start !important;
+  justify-content:space-between !important;
+  gap:0 !important;
+  box-sizing:border-box !important;
+}
+
+#gameScreen > header.hud .timer-panel,
+#gameScreen > header.hud .right-panels,
+#gameScreen > header.hud .home-button{
+  margin:0 !important;
+  padding:0 !important;
+  align-self:flex-start !important;
+}
+
+#gameScreen > header.hud .right-panels{
+  display:flex !important;
+  align-items:flex-start !important;
+  justify-content:flex-end !important;
+  gap:0 !important;
+}
+
+#gameScreen > header.hud .timer-ring,
+#gameScreen > header.hud .home-button{
+  width:80px !important;
+  height:80px !important;
+  display:block !important;
+  flex:none !important;
+}
+
+/* Abaixo de 900px: mesma largura calculada da grade */
+@media (max-width:900px){
+  #gameScreen > header.hud{
+    width:342px !important; /* 4 cartas de 78px + 3 gaps de 10px */
+    max-width:calc(100vw - 20px) !important;
+    padding-top:14px !important;
+  }
+
+  #gameScreen > header.hud .timer-ring,
+  #gameScreen > header.hud .home-button{
+    width:66px !important;
+    height:66px !important;
+  }
+}
+
+/* Abaixo de 768px: mesma largura calculada da grade */
+@media (max-width:768px){
+  #gameScreen > header.hud{
+    width:291px !important; /* 4 cartas de 66px + 3 gaps de 9px */
+    max-width:calc(100vw - 18px) !important;
+    padding-top:14px !important;
+  }
+
+  #gameScreen > header.hud .timer-ring,
+  #gameScreen > header.hud .home-button{
+    width:66px !important;
+    height:66px !important;
+  }
+}
+
+/* iPhone menor */
+@media (max-width:520px){
+  #gameScreen > header.hud{
+    width:280px !important; /* 4 cartas de 64px + 3 gaps de 8px */
+    max-width:calc(100vw - 16px) !important;
+    padding-top:14px !important;
+  }
+}
+
+/* Alturas muito pequenas */
+@media (max-height:700px) and (max-width:768px){
+  #gameScreen > header.hud{
+    width:253px !important; /* 4 cartas de 58px + 3 gaps de 7px */
+    max-width:calc(100vw - 14px) !important;
+    padding-top:10px !important;
+  }
+
+  #gameScreen > header.hud .timer-ring,
+  #gameScreen > header.hud .home-button{
+    width:58px !important;
+    height:58px !important;
+  }
+}
