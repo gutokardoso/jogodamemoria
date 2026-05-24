@@ -3083,3 +3083,109 @@ body > .game-logo-wrapper{
     height:58px !important;
   }
 }
+
+
+/* TESTADO — CORRIGIR CENTRALIZAÇÃO DO NÚMERO NO CRONÔMETRO E TOPO COM HOME */
+#gameScreen > header.hud{
+  align-items:flex-start !important;
+}
+
+#gameScreen > header.hud .timer-panel,
+#gameScreen > header.hud .right-panels,
+#gameScreen > header.hud .home-button{
+  align-self:flex-start !important;
+  margin-top:0 !important;
+  padding-top:0 !important;
+}
+
+#gameScreen > header.hud .timer-panel{
+  display:flex !important;
+  align-items:flex-start !important;
+  justify-content:flex-start !important;
+  height:80px !important;
+  width:80px !important;
+  min-width:80px !important;
+  line-height:1 !important;
+}
+
+#gameScreen > header.hud .timer-ring{
+  position:relative !important;
+  display:block !important;
+  width:80px !important;
+  height:80px !important;
+  margin:0 !important;
+  padding:0 !important;
+  line-height:1 !important;
+  flex:none !important;
+  transform:none !important;
+}
+
+#gameScreen > header.hud .timer-ring strong,
+#gameScreen > header.hud #timer{
+  position:absolute !important;
+  inset:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:100% !important;
+  height:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  line-height:1 !important;
+  text-align:center !important;
+  transform:none !important;
+}
+
+#gameScreen > header.hud .timer-svg{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  display:block !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+
+#gameScreen > header.hud .home-button{
+  display:block !important;
+  width:80px !important;
+  height:80px !important;
+  min-width:80px !important;
+  min-height:80px !important;
+  margin:0 !important;
+  padding:0 !important;
+  line-height:1 !important;
+  transform:none !important;
+}
+
+#gameScreen > header.hud .home-button img{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+
+/* Abaixo de 900px mantém a centralização dentro dos tamanhos mobile */
+@media (max-width:900px){
+  #gameScreen > header.hud .timer-panel,
+  #gameScreen > header.hud .timer-ring,
+  #gameScreen > header.hud .home-button{
+    width:66px !important;
+    height:66px !important;
+    min-width:66px !important;
+    min-height:66px !important;
+  }
+}
+
+@media (max-height:700px) and (max-width:768px){
+  #gameScreen > header.hud .timer-panel,
+  #gameScreen > header.hud .timer-ring,
+  #gameScreen > header.hud .home-button{
+    width:58px !important;
+    height:58px !important;
+    min-width:58px !important;
+    min-height:58px !important;
+  }
+}
