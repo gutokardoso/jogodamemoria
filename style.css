@@ -2935,3 +2935,58 @@ body > .game-logo-wrapper{
 .result-screen.result-win .result-lose-image{
   display:none !important;
 }
+
+
+/* HUD — REMOVER ACERTOS E COLOCAR CONTAGEM REGRESSIVA NO TOPO */
+#gameScreen .pairs-panel{
+  display:none !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+}
+
+#gameScreen > header.hud{
+  justify-content:center !important;
+  align-items:flex-start !important;
+  gap:42px !important;
+}
+
+#gameScreen > header.hud .right-panels{
+  gap:0 !important;
+}
+
+#countdown.countdown{
+  position:absolute !important;
+  top:12px !important;
+  bottom:auto !important;
+  left:50% !important;
+  transform:translateX(-50%) !important;
+  z-index:999999 !important;
+  font-size:78px !important;
+  line-height:1 !important;
+  font-weight:900 !important;
+  color:#fff3b6 !important;
+  text-shadow:0 0 30px #ffc400, 0 0 12px rgba(255,255,255,.65) !important;
+  pointer-events:none !important;
+}
+
+@media (max-width:900px){
+  #gameScreen > header.hud{
+    gap:34px !important;
+  }
+
+  #countdown.countdown{
+    top:10px !important;
+    font-size:66px !important;
+  }
+}
+
+@media (max-width:520px){
+  #gameScreen > header.hud{
+    gap:28px !important;
+  }
+
+  #countdown.countdown{
+    top:10px !important;
+    font-size:54px !important;
+  }
+}
